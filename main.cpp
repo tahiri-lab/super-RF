@@ -5,7 +5,7 @@
 #include "parser.hpp"
 using namespace std;
 
-void printVectorOfPairs(const std::vector<std::pair<std::list<std::string>, std::list<std::string>>>& myVector);
+void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector);
 
 int main() {
     string newickString = "(ant:17, (bat:31, cow:22):7, dog:22, (elk:33, fox:12):40);";
@@ -19,7 +19,6 @@ int main() {
     vector<vector<string>> stageVector;
 
     for (int i = 0; i < test.size(); i++) {
-
         stageVector.push_back(parseStage(test[i]));
     }
 
@@ -29,28 +28,20 @@ int main() {
 
     printVectorOfPairs(finalResult);
 
-
-
     return 0;
 }
 
-
-
-
-void printVectorOfPairs(const std::vector<std::pair<std::list<std::string>, std::list<std::string>>>& myVector) {
-    for (const auto& pair : myVector) {
-        const std::list<std::string>& firstList = pair.first;
-        const std::list<std::string>& secondList = pair.second;
-
-        std::cout << "First list elements:" << std::endl;
-        for (const std::string& str : firstList) {
-            std::cout << str << std::endl;
+void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
+    for (pair p : vector) {
+        cout << "First : " << endl;
+        for (string s : p.first) {
+            cout << s << endl;
         }
 
-        std::cout << "Second list elements:" << std::endl;
-        for (const std::string& str : secondList) {
-            std::cout << str << std::endl;
+        cout << "Second : " << endl;
+        for (string s : p.second) {
+            cout << s << endl;
         }
+        cout << endl;
     }
 }
-

@@ -21,6 +21,7 @@ int countElementsInParenthesis(string str);
 vector<string> getStageElements(string str);
 vector<pair<list<string>, list<string>>> stageBipartitioner(vector<vector<string>> stageVector);
 pair<list<string>, list<string>> cutStringVector(vector<vector<string>> vector, int cutIndex);
+void printVectorUtil(vector<vector<string>> vectorInput);
 
 
 #endif //NEWICKBIPARTITIONPARSER__PARSER_HPP

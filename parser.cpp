@@ -139,6 +139,7 @@ vector<string> getStageElements(string str) {
 
         if (currentParLevel != parLevel ) {
             result.push_back(subString);
+            cout << subString << endl;
             subString = "";
         }
     }
@@ -153,29 +154,23 @@ vector<pair<list<string>, list<string>>> stageBipartitioner(vector<vector<string
     int stageElts = stageVector.size(); //TODO clean stageVector to delete empty strings and have the proper number of elements
 
     cout << "Elements in the stage : " << stageVector.size() << endl;
+    printVectorUtil(stageVector);
+
 
     if (stageElts >= 4 ) {
         for (int cutIndex = 2; cutIndex <= stageElts - 2; cutIndex++ ) {
-            currentPair = cutStringVector(stageVector, cutIndex);
+            cout << "Cut index : " << cutIndex << endl;
+            currentPair = cutStringVector(stageVector, cutIndex); //TODO problème de vecteur ici, à voir si envoyé avec les mauvaises espèces
             result.push_back(currentPair);
         }
     }
 
-    /**
-    for (int i = 0; i < stageVector.size(); i++) {
-        for (int j = 0; j < stageVector[i].size(); j++) {
-            cout << stageVector[i][j] << endl;
-        }
-        cout << endl;
-    }
-    */
-
     return result;
 }
 
-
 pair<list<string>, list<string>> cutStringVector(vector<vector<string>> vector, int cutIndex) {
     pair<list<string>, list<string>> result;
+
     list<string> firstBipartition;
     list<string> secondBipartition;
 
@@ -192,3 +187,17 @@ pair<list<string>, list<string>> cutStringVector(vector<vector<string>> vector, 
     result.second = secondBipartition;
     return result;
 }
+
+
+void printVectorUtil(vector<vector<string>> vectorInput) {
+    for (vector v : vectorInput) {
+        for (string s : v) {
+            cout << s << endl;
+        }
+        cout << "---" << endl;
+    }
+}
+
+//TODO function to count number of elements in whole Newick for it to stop the recursion
+//TODO when all steps analyzed, recursion is stoped
+//TODO find a tuto to create recursion functions
