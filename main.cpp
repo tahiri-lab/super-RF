@@ -14,8 +14,6 @@ int main() {
     int result = 0;
 
     vector<string> test = getStageElements(newickString);
-    //cout << test.size() << endl;
-    vector<string> taxons;
     vector<vector<string>> stageVector;
 
     for (int i = 0; i < test.size(); i++) {
@@ -31,6 +29,10 @@ int main() {
     return 0;
 }
 
+
+/**
+ * @brief util function to print a vector<pair<list<string>, list<string>>>
+ * */
 void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
     for (pair p : vector) {
         cout << "First : " << endl;

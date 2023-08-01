@@ -12,12 +12,9 @@
 using namespace std;
 
 vector<string> parseStage(string stageString);
-int countWordsInParentheses(const string& input_string);
-int countSubTrees(string inputString);
 string deleteSpaces(string inputString);
 string cleanTaxon(string taxon);
 vector<pair<string, string>> splitFullNewick(string inputString);
-int countElementsInParenthesis(string str);
 vector<string> getStageElements(string str);
 vector<pair<list<string>, list<string>>> stageBipartitioner(vector<vector<string>> stageVector);
 pair<list<string>, list<string>> cutStringVector(vector<vector<string>> vector, int cutIndex);

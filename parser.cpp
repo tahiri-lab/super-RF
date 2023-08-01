@@ -22,43 +22,6 @@ vector<string> parseStage(string stageString) {
     return taxons;
 }
 
-int countWordsInParentheses(const string& inputString) {
-    // Remove any leading or trailing whitespaces
-    string trimmedString = inputString;
-    size_t start_pos = trimmedString.find_first_not_of(" \t");
-    size_t end_pos = trimmedString.find_last_not_of(" \t");
-    if (start_pos != string::npos && end_pos != string::npos)
-        trimmedString = trimmedString.substr(start_pos, end_pos - start_pos + 1);
-
-    // Check if the input string is empty or invalid
-    if (trimmedString.empty() || trimmedString[0] != '(' || trimmedString.back() != ')')
-        return 0;
-
-    // Extract the words within parentheses
-    string words_inside_parentheses = trimmedString.substr(1, trimmedString.length() - 2);
-
-    // Count the number of words within parentheses
-    int count = 1; // At least one word is always present
-    for (char c : words_inside_parentheses) {
-        if (c == ',') {
-            count++;
-        }
-    }
-    return count;
-}
-
-int countSubTrees(string inputString) {
-    int result = 0;
-    char currentChar;
-    for (int i = 0; i < inputString.length(); i++) {
-        currentChar = inputString[i];
-        if (currentChar == '(') {
-            result ++;
-        }
-    }
-    return result;
-}
-
 string deleteSpaces(string inputString) {
     string result;
     for (char c : inputString) {
@@ -89,30 +52,6 @@ vector<pair<string, string>> splitFullNewick(string inputString) {
     string secondBip;
 
     return result;
-}
-
-
-int countElementsInParenthesis(string str) {
-    if (str[0] == '(') {
-        str.erase(0,1);
-    }
-
-    int count = 0;
-    int parLevel = 0;
-
-    for (char c : str) {
-        if (c == '(') {
-            parLevel ++;
-        }
-        if (c == ')') {
-            parLevel --;
-        }
-        if (parLevel == 0 && c == ',') {
-            count ++;
-        }
-    }
-    count ++; //for the last element
-    return count;
 }
 
 vector<string> getStageElements(string str) {
