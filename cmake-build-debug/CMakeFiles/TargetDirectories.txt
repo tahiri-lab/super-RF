@@ -1,3 +1,0 @@
-/Users/arthurdebeaupte/Documents/USherbrooke/super-RF/cmake-build-debug/CMakeFiles/NewickBipartitionParser_.dir
-/Users/arthurdebeaupte/Documents/USherbrooke/super-RF/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/arthurdebeaupte/Documents/USherbrooke/super-RF/cmake-build-debug/CMakeFiles/rebuild_cache.dir
