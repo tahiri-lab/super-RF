@@ -23,6 +23,8 @@ int main() {
 
 /**
  * @brief util function to print a vector<pair<list<string>, list<string>>>
+ *
+ * @param vector vector<pair<list<string>, list<string>>> to print
  * */
 void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
     for (pair p : vector) {

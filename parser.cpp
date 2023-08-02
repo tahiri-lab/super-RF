@@ -9,23 +9,32 @@
  * */
 vector<string> getStringStackBipartitions(string inputString) {
     vector<string> result;
-    stack<string> stack;
+    stack<string> stringStack;
     string subString = "";
+
+
+    int level = -1;
+    stack<string> memoryStack;
 
     for(char c : inputString) {
         if(c == '(') {
             subString = "";
-            stack.push(subString);
+            stringStack.push(subString);
+            level ++;
         } else if (c == ')') {
-            result.push_back(stack.top());
-            stack.pop();
+            result.push_back(stringStack.top());
+            stringStack.pop();
+            level --;
         } else {
+            cout << level << endl;
             subString += c;
-            if (!stack.empty()) {
-                stack.top() = (stack.top() += c);
+            if (!stringStack.empty()) {
+                stringStack.top() = (stringStack.top() += c);
             }
         }
     }
+
+    //TODO find a way to deal with the levels and to included every bipartition
     return result;
 }
 
@@ -167,5 +176,4 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
     }
     return result;
 }
-
 
