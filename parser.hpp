@@ -14,19 +14,6 @@
 using namespace std;
 
 
-/**
-vector<string> parseStage(string stageString);
-string deleteSpaces(string inputString);
-string cleanTaxon(string taxon);
-vector<pair<string, string>> splitFullNewick(string inputString);
-vector<string> getStageElements(string str);
-vector<pair<list<string>, list<string>>> stageBipartitioner(vector<vector<string>> stageVector);
-pair<list<string>, list<string>> cutStringVector(vector<vector<string>> vector, int cutIndex);
-void printVectorUtil(vector<vector<string>> vectorInput);
-
-*/
-
-
 vector<string> getStringStackBipartitions(string inputString);
 
 string deleteTaxonDistance(string inputString);
