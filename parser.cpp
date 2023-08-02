@@ -1,5 +1,12 @@
 #include "parser.hpp"
 
+/**
+ * @brief cuts a Newick string into a vector of strings, each string containing species of a bipartition
+ *
+ * @param inputString Newick representation of a phylogenetical tree
+ *
+ * @return vector<string>, each string containing a bipartition species
+ * */
 vector<string> getStringStackBipartitions(string inputString) {
     vector<string> result;
     stack<string> stack;
@@ -134,7 +141,6 @@ bool findStringInList(list<string> list, string target) {
 }
 
 
-
 /**
  * @brief gets all bipartions of a phylogenetical tree in Newick representation
  *
@@ -144,5 +150,22 @@ bool findStringInList(list<string> list, string target) {
 vector<pair<list<string>, list<string>>> getBipartitions(string newickInputString) {
     vector<pair<list<string>, list<string>>> result;
 
+    vector<string> stringBipartitions;
+    vector<string> allSpecies;
+    vector<vector<string>> bipartitionVectors;
+
+    allSpecies = getAllTaxons(newickInputString);
+
+    stringBipartitions = getStringStackBipartitions(newickInputString);
+
+    for(string s : stringBipartitions) {
+        bipartitionVectors.push_back(splitStringToVector(s));
+    }
+
+    for (vector<string> v: bipartitionVectors) {
+        result.push_back(createPairBipartition(allSpecies, v));
+    }
     return result;
 }
+
+
