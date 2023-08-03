@@ -24,11 +24,22 @@ vector<string> getAllTaxons(string inputString);
 
 pair<list<string>, list<string>> createPairBipartition(vector<string> allSpecies, vector<string> currentBipartition);
 
-vector<pair<list<string>, list<string>>> getBipartitions(string newickInputString);
-
 bool findStringInList(list<string> list, string target);
 
+vector<string> getStringBipartitions2(vector<pair<string, int>> inputVector);
 
+vector<pair<string, int>> levelVectorBuilder(string inputString);
+
+string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureLevel);
+
+vector<pair<list<string>, list<string>>> getBipartitions(string newickInputString);
+
+
+
+/**
+ * UTIL functions
+ * */
+void printVectorOfPairs2(const vector<pair<string, int>>& data);
 
 
 

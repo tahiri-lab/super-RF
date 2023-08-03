@@ -26,7 +26,6 @@ vector<string> getStringStackBipartitions(string inputString) {
             stringStack.pop();
             level --;
         } else {
-            cout << level << endl;
             subString += c;
             if (!stringStack.empty()) {
                 stringStack.top() = (stringStack.top() += c);
@@ -34,7 +33,6 @@ vector<string> getStringStackBipartitions(string inputString) {
         }
     }
 
-    //TODO find a way to deal with the levels and to included every bipartition
     return result;
 }
 
@@ -151,6 +149,71 @@ bool findStringInList(list<string> list, string target) {
 
 
 /**
+ * NEW IDEA : 03/08/2023
+ * */
+vector<string> getStringBipartitions2(vector<pair<string, int>> inputVector) {
+    vector<string> result;
+    string currentString;
+    int currentLevel = 0;
+    int currentIndex = -1;
+
+
+    //TODO pass every sub vector everytime there is a superior level detected
+    for (pair<string, int> p: inputVector) {
+        currentIndex ++;
+        if (p.second > currentLevel) {
+            vector<pair<string, int>> newVector(inputVector.begin() + currentIndex, inputVector.end());
+            //printVectorOfPairs2(newVector);
+            result.push_back(splitSubVectorOfPairs(newVector, p.second));
+        }
+        currentLevel = p.second;
+    }
+    return result;
+}
+
+vector<pair<string, int>> levelVectorBuilder(string inputString) {
+    vector<pair<string, int>> result;
+    pair<string, int> currentPair;
+    string subString;
+    int level = -1;
+
+    for(char c: inputString) {
+        if (c == '(') {
+            if (subString != "") {
+                currentPair.first = subString;
+                currentPair.second = level;
+                result.push_back(currentPair);
+                subString = "";
+            }
+            level ++;
+        } else if (c == ')') {
+            if (subString != "") {
+                currentPair.first = subString;
+                currentPair.second = level;
+                result.push_back(currentPair);
+                subString = "";
+            }
+            level --;
+        } else {
+            subString += c;
+        }
+    }
+    return result;
+}
+
+
+string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureLevel) {
+    string result;
+    for (pair<string, int> p: subVector) {
+        if(p.second < departureLevel) {
+            break;
+        }
+        result += p.first;
+    }
+    return result;
+}
+
+/**
  * @brief gets all bipartions of a phylogenetical tree in Newick representation
  *
  * @param newickInputString newick representation of the phylogenetic tree
@@ -162,10 +225,13 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
     vector<string> stringBipartitions;
     vector<string> allSpecies;
     vector<vector<string>> bipartitionVectors;
+    vector<pair<string, int>> pairVector;
 
     allSpecies = getAllTaxons(newickInputString);
 
-    stringBipartitions = getStringStackBipartitions(newickInputString);
+    pairVector = levelVectorBuilder(newickInputString);
+
+    stringBipartitions = getStringBipartitions2(pairVector);
 
     for(string s : stringBipartitions) {
         bipartitionVectors.push_back(splitStringToVector(s));
@@ -177,3 +243,13 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
     return result;
 }
 
+
+
+/**
+ * UTIL functions
+ * */
+void printVectorOfPairs2(const vector<pair<string, int>>& data) {
+    for (const auto& pair : data) {
+        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    }
+}
