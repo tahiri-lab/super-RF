@@ -46,10 +46,14 @@ string deleteTaxonDistance(string inputString) {
     string result;
 
     for(char c: inputString) {
+        //getting rid of taxon's distances
         if (c == ':'){
             break;
         }
-        result += c;
+        //getting rid of remaining parenthesis
+        if (c != '(' && c != ')') {
+            result += c;
+        }
     }
     return result;
 }
@@ -148,17 +152,12 @@ bool findStringInList(list<string> list, string target) {
 }
 
 
-/**
- * NEW IDEA : 03/08/2023
- * */
-vector<string> getStringBipartitions2(vector<pair<string, int>> inputVector) {
+vector<string> getStringBipartitions(vector<pair<string, int>> inputVector) {
     vector<string> result;
     string currentString;
     int currentLevel = 0;
     int currentIndex = -1;
 
-
-    //TODO pass every sub vector everytime there is a superior level detected
     for (pair<string, int> p: inputVector) {
         currentIndex ++;
         if (p.second > currentLevel) {
@@ -171,6 +170,12 @@ vector<string> getStringBipartitions2(vector<pair<string, int>> inputVector) {
     return result;
 }
 
+/**
+ * @brief builds a vector<pair<string, int>> from a Newick string
+ *
+ * @param inputString Newick representation
+ * @return vector<pair<string, int>>, string being the content and int the level of its content
+ * */
 vector<pair<string, int>> levelVectorBuilder(string inputString) {
     vector<pair<string, int>> result;
     pair<string, int> currentPair;
@@ -178,6 +183,7 @@ vector<pair<string, int>> levelVectorBuilder(string inputString) {
     int level = -1;
 
     for(char c: inputString) {
+        //TODO get all content in parenthesis every time there is a new one
         if (c == '(') {
             if (subString != "") {
                 currentPair.first = subString;
@@ -194,9 +200,8 @@ vector<pair<string, int>> levelVectorBuilder(string inputString) {
                 subString = "";
             }
             level --;
-        } else {
-            subString += c;
         }
+        subString += c;
     }
     return result;
 }
@@ -231,7 +236,7 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
 
     pairVector = levelVectorBuilder(newickInputString);
 
-    stringBipartitions = getStringBipartitions2(pairVector);
+    stringBipartitions = getStringBipartitions(pairVector);
 
     for(string s : stringBipartitions) {
         bipartitionVectors.push_back(splitStringToVector(s));

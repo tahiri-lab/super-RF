@@ -26,7 +26,7 @@ pair<list<string>, list<string>> createPairBipartition(vector<string> allSpecies
 
 bool findStringInList(list<string> list, string target);
 
-vector<string> getStringBipartitions2(vector<pair<string, int>> inputVector);
+vector<string> getStringBipartitions(vector<pair<string, int>> inputVector);
 
 vector<pair<string, int>> levelVectorBuilder(string inputString);
 
