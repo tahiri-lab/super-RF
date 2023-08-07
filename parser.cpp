@@ -12,7 +12,6 @@ vector<string> getStringStackBipartitions(string inputString) {
     stack<string> stringStack;
     string subString = "";
 
-
     int level = -1;
     stack<string> memoryStack;
 
@@ -32,7 +31,6 @@ vector<string> getStringStackBipartitions(string inputString) {
             }
         }
     }
-
     return result;
 }
 
@@ -151,7 +149,14 @@ bool findStringInList(list<string> list, string target) {
     return result;
 }
 
-
+/**
+ * @brief
+ *
+ * @param inputVector a vector<pair<string, int>> containing leveled strings from a Newick representation (obtained via
+ *         levelVectorBuilder function)
+ *
+ * @return vector<string> with all bipartitinos as strings
+ * */
 vector<string> getStringBipartitions(vector<pair<string, int>> inputVector) {
     vector<string> result;
     string currentString;
@@ -206,7 +211,14 @@ vector<pair<string, int>> levelVectorBuilder(string inputString) {
     return result;
 }
 
-
+/**
+ * @brief splits a vector<pair<string, int>> into a single level
+ *
+ * @param departureLevel level beyond which it cuts the initial vector
+ * @param subVector subpart to cut
+ *
+ * @return entire bipartition level string
+ * */
 string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureLevel) {
     string result;
     for (pair<string, int> p: subVector) {
@@ -247,8 +259,6 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
     }
     return result;
 }
-
-
 
 /**
  * UTIL functions

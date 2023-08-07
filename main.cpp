@@ -17,7 +17,7 @@ int main() {
     string realNewickString2 = "(1:0.1,(((2:0.1,3:0.1):0.04421[70],(4:0.1,(5:0.1,6:0.1,7:0.1,8:0.1):0.04431[59],(9:0.1,10:0.1):0.08900[91]):0.1[54]):0.13564[85],((11:0.054678,12:0.029286):0.033400[70],(13:0.1,14:0.1,15:0.1):0.08768[83],16:0.04400,(((17:0.1,18:0.1,19:0.1,20:0.1):0.16426[84],21:0.15816,22:0.042378,23:0.040086,24:0.1,25:0.470188,(26:0.04327,(27:0.1,Murine_virus:0.1):0.1[60]):0.048383[60],Murine_JHM:0.025102,Rat_Parker:0.023927,Feline_per:1.403610):0.667926[86],(Bat_HKU5-1:0.076790,MERS-CoV_S:0.233039,Bat_HKU4-1:0.134680):0.561739[76]):0.557886[76],(BtCoV_273_2005:0.1,Rf1:0.1):0.1[97],BtCoV_279_2005:0.13435,(HKU3-12:0.1,HKU3-6:0.1):0.05011[94]):0.06426[79]):0.08915[97],Guangxi_Pangolin_P1E:0.1,Guangxi_Pangolin_P4L:0.1,Guangxi_Pangolin_P5L:0.1,Guangxi_Pangolin_P5E:0.1) ";
 
     vector<pair<list<string>, list<string>>> finalResult;
-    finalResult = getBipartitions(realNewickString);
+    finalResult = getBipartitions(newickString3);
 
     printVectorOfPairs(finalResult);
 
