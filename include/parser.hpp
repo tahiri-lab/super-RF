@@ -13,7 +13,6 @@
 #include <algorithm>
 using namespace std;
 
-
 vector<string> getStringStackBipartitions(string inputString);
 
 string deleteTaxonDistance(string inputString);

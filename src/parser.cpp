@@ -1,4 +1,4 @@
-#include "parser.hpp"
+#include "../include/parser.hpp"
 
 /**
  * @brief cuts a Newick string into a vector of strings, each string containing species of a bipartition
