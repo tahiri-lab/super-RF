@@ -19,6 +19,8 @@ string deleteTaxonDistance(string inputString);
 
 vector<string> splitStringToVector(string inputString);
 
+list<string> splitStringToList(string inputString);
+
 vector<string> getAllTaxons(string inputString);
 
 pair<list<string>, list<string>> createPairBipartition(vector<string> allSpecies, vector<string> currentBipartition);
@@ -31,7 +33,11 @@ vector<pair<string, int>> levelVectorBuilder(string inputString);
 
 string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureLevel);
 
-vector<pair<list<string>, list<string>>> getBipartitions(string newickInputString);
+vector<pair<list<string>, list<string>>> getPairBipartitions(string newickInputString);
+
+vector<list<string>> getBipartitions(string newickInputString);
+
+
 
 
 
@@ -40,6 +46,6 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
  * */
 void printVectorOfPairs2(const vector<pair<string, int>>& data);
 
-
+void printVectorOfListOfString(vector<list<string>> input);
 
 #endif //NEWICKBIPARTITIONPARSER__PARSER_HPP

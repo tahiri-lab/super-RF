@@ -83,6 +83,32 @@ vector<string> splitStringToVector(string inputString) {
 }
 
 /**
+ * @brief splits a string in Newick format such as bat:31, cow:22, goat:21, bird:12 into a list<string>
+ *
+ * @param inputString newick format string : "bat:31, cow:22, goat:21, bird:12"
+ * @return list<string> : bat cow goat bird
+ * */
+list<string> splitStringToList(string inputString) {
+    list<string> result;
+    string subString;
+
+    for(char c: inputString) {
+        if(c == ',' && subString != "") {
+            if (deleteTaxonDistance(subString) != "") {
+                result.push_back(deleteTaxonDistance(subString));
+            }
+            subString = "";
+        } else if (c != ' '){
+            subString += c;
+        }
+    }
+    if ((deleteTaxonDistance(subString) != "")) {
+        result.push_back(deleteTaxonDistance(subString));
+    }
+    return result;
+}
+
+/**
  * @brief gets all taxons of a phylogenetic tree
  *
  * @param inputString newick representation of the tree
@@ -236,12 +262,12 @@ string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureL
  * @param newickInputString newick representation of the phylogenetic tree
  * @return <vector<pair<list<string>, list<string>>> where each pair corresponds to a bipartition
  * */
-vector<pair<list<string>, list<string>>> getBipartitions(string newickInputString) {
+vector<pair<list<string>, list<string>>> getPairBipartitions(string newickInputString) {
     vector<pair<list<string>, list<string>>> result;
 
     vector<string> stringBipartitions;
     vector<string> allSpecies;
-    vector<vector<string>> bipartitionVectors;
+    vector<vector<string>> bipartitionsVector;
     vector<pair<string, int>> pairVector;
 
     allSpecies = getAllTaxons(newickInputString);
@@ -251,13 +277,35 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
     stringBipartitions = getStringBipartitions(pairVector);
 
     for(string s : stringBipartitions) {
-        bipartitionVectors.push_back(splitStringToVector(s));
+        bipartitionsVector.push_back(splitStringToVector(s));
     }
 
-    for (vector<string> v: bipartitionVectors) {
+    for (vector<string> v: bipartitionsVector) {
         result.push_back(createPairBipartition(allSpecies, v));
     }
     return result;
+}
+
+/**
+ * @brief gets all bipartitions of a tree and returns a vector<list<string>>, each list<string> being a bipartition
+ *
+ * @param newickInputString Newick representation of a phylogenetical tree
+ * @return vector<list<string>>, each list<string> being a bipartition
+ * */
+vector<list<string>> getBipartitions(string newickInputString) {
+    vector<string> stringBipartitions;
+    vector<list<string>> bipartitionsList;
+    vector<pair<string, int>> pairVector;
+
+    pairVector = levelVectorBuilder(newickInputString);
+
+    stringBipartitions = getStringBipartitions(pairVector);
+
+    for(string s : stringBipartitions) {
+        bipartitionsList.push_back(splitStringToList(s));
+    }
+
+    return bipartitionsList;
 }
 
 /**
@@ -266,5 +314,14 @@ vector<pair<list<string>, list<string>>> getBipartitions(string newickInputStrin
 void printVectorOfPairs2(const vector<pair<string, int>>& data) {
     for (const auto& pair : data) {
         cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    }
+}
+
+void printVectorOfListOfString(vector<list<string>> input) {
+    for(list<string> stringList : input ) {
+        for (string s: stringList) {
+            cout << s << " " ;
+        }
+        cout << endl;
     }
 }
