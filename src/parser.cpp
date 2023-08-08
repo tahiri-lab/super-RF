@@ -325,3 +325,23 @@ void printVectorOfListOfString(vector<list<string>> input) {
         cout << endl;
     }
 }
+
+/**
+ * @brief util function to print a vector<pair<list<string>, list<string>>>
+ *
+ * @param vector vector<pair<list<string>, list<string>>> to print
+ * */
+void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
+    for (pair p : vector) {
+        cout << "FIRST : " << endl;
+        for (string s : p.first) {
+            cout << s << endl;
+        }
+        cout << "--------------------------------------------------" << endl;
+        cout << "SECOND : " << endl;
+        for (string s : p.second) {
+            cout << s << endl;
+        }
+        cout << endl;
+    }
+}

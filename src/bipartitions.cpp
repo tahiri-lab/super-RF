@@ -35,15 +35,25 @@ vector<list<string>> setDifference(vector<list<string>> set1, vector<list<string
 }
 
 
-vector<list<string>> symmetricDifference(vector<list<string>> set1, vector<list<string>> set2) {
-    vector<list<string>> result;
-
-    //TODO implement function
-
-    return result;
+vector<string> getTreeSet(string inputString) {
+    return getAllTaxons(inputString);
 }
 
+//TODO test
+vector<string> setUnion(vector<string> set1, vector<string> set2) {
+    vector<string> result;
 
+    for(string s: set1) {
+        result.push_back(s);
+    }
+
+    for (string s: set2) {
+        if (!isStringInVector(s, set1)){
+            result.push_back(s);
+        }
+    }
+    return result;
+}
 
 /**
  * Util functions
@@ -54,4 +64,16 @@ bool areListsEqual(list<string> list1, list<string> list2) {
     unordered_set set2(list2.begin(), list2.end());
 
     return set1 == set2;
+}
+
+bool isStringInVector(string inputString, vector<string> inputVector) {
+    bool result = false;
+
+    for(string s: inputVector) {
+        if (s == inputString) {
+            result = true;
+            break;
+        }
+    }
+    return result;
 }

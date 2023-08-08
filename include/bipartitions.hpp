@@ -13,6 +13,8 @@
 #include <unordered_set>
 #include <algorithm>
 
+#include "parser.hpp"
+
 using namespace std;
 
 /**
@@ -35,19 +37,31 @@ int getBipartitionSize(pair<list<string>, list<string>> inputBipartition);
 vector<list<string>> setDifference (vector<list<string>> set1, vector<list<string>> set2 );
 
 /**
- * @brief get symmetric difference between two sets
+ * @brief returns a set containing all species of a phylogenetic tree
+ *
+ *@param inputString Newick representation of the tree
+ *
+ *@return vector<string>, each string being a tree leaf
+ * */
+vector<string> getTreeSet(string inputString);
+
+/**
+ * @brief returns the union of two sets
  *
  * @param set1
  * @param set2
  *
- * @return symmetric difference between set1 and set2
+ * @return vector<string> the union of the given sets
  * */
-vector<list<string>> symmetricDifference(vector<list<string>> set1, vector<list<string>> set2);
+vector<string> setUnion(vector<string> set1, vector<string> set2);
+
 
 /**
  * util functions
  * */
 
 bool areListsEqual(list<string> list1, list<string> list2);
+
+bool isStringInVector(string s, vector<string> v);
 
 #endif //NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP

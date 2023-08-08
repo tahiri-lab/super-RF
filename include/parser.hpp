@@ -48,4 +48,6 @@ void printVectorOfPairs2(const vector<pair<string, int>>& data);
 
 void printVectorOfListOfString(vector<list<string>> input);
 
+void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector);
+
 #endif //NEWICKBIPARTITIONPARSER__PARSER_HPP
