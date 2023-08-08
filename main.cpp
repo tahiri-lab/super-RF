@@ -28,14 +28,31 @@ int main() {
 
 
     /** TEST FOR getBipartitions returning a vector<vector<string>>   */
+    cout << "--------------------\nBipartitions of :\n" << newickString3 << "\n--------------------\n" << endl;
     vector<list<string>> finalResult;
     finalResult = getBipartitions(newickString3);
     printVectorOfListOfString(finalResult);
     cout << "\nNumber of bipartitions : " << finalResult.size() << "\n" << endl;
 
     vector<list<string>> finalResult2;
-    finalResult = getBipartitions(newickString);
+    finalResult2 = getBipartitions(newickString);
+
+    cout << "--------------------\nTesting set difference between SET 1 and SET 2\n--------------------" << endl;
+
+    cout << "\nSET 1 :" << endl;
+    printVectorOfListOfString(finalResult);
+
+    cout << "\nSET 2 :" << endl;
+    list<string> intermediateList;
+    intermediateList.push_back("lion");
+    intermediateList.push_back("tiger");
+    finalResult2.push_back(intermediateList);
     printVectorOfListOfString(finalResult2);
+
+
+    cout << "\n(SET 1) - (SET 2) : " << endl;
+    vector<list<string>> setDifferenceTest = setDifference(finalResult, finalResult2);
+    printVectorOfListOfString(setDifferenceTest);
 
     return 0;
 }
@@ -60,6 +77,8 @@ void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
         cout << endl;
     }
 }
+
+
 
 
 

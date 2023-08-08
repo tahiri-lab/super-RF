@@ -24,7 +24,25 @@ using namespace std;
  * */
 int getBipartitionSize(pair<list<string>, list<string>> inputBipartition);
 
+/**
+ * @brief returns set1 minus set2
+ *
+ * @param set1
+ * @param set2
+ *
+ * @return set1 minus set2
+ * */
 vector<list<string>> setDifference (vector<list<string>> set1, vector<list<string>> set2 );
+
+/**
+ * @brief get symmetric difference between two sets
+ *
+ * @param set1
+ * @param set2
+ *
+ * @return symmetric difference between set1 and set2
+ * */
+vector<list<string>> symmetricDifference(vector<list<string>> set1, vector<list<string>> set2);
 
 /**
  * util functions

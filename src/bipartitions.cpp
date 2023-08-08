@@ -14,19 +14,36 @@ int getBipartitionSize(pair<list<string>, list<string>> inputBipartition) {
     return inputBipartition.first.size();
 }
 
-//TODO end and debut this function that returns the difference between two set of species
-vector<list<string>> setDifference (vector<list<string>> set1, vector<list<string>> set2 ) {
+
+vector<list<string>> setDifference(vector<list<string>> set1, vector<list<string>> set2) {
     vector<list<string>> result;
 
-    for(list<string> l1 : set1) {
+    for (list<string> l1 : set1) {
+        bool foundEqual = false;
         for (list<string> l2 : set2) {
             if (areListsEqual(l1, l2)) {
-                result.push_back(l2);
+                foundEqual = true;
+                break;
             }
         }
+        if (!foundEqual) {
+            result.push_back(l1);
+        }
     }
+
     return result;
 }
+
+
+vector<list<string>> symmetricDifference(vector<list<string>> set1, vector<list<string>> set2) {
+    vector<list<string>> result;
+
+    //TODO implement function
+
+    return result;
+}
+
+
 
 /**
  * Util functions
