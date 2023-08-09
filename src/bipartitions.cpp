@@ -39,7 +39,7 @@ vector<string> getTreeSet(string inputString) {
     return getAllTaxons(inputString);
 }
 
-//TODO test
+
 vector<string> setUnion(vector<string> set1, vector<string> set2) {
     vector<string> result;
 
@@ -49,6 +49,26 @@ vector<string> setUnion(vector<string> set1, vector<string> set2) {
 
     for (string s: set2) {
         if (!isStringInVector(s, set1)){
+            result.push_back(s);
+        }
+    }
+    return result;
+}
+
+vector<string> setIntersection(vector<string> set1, vector<string> set2) {
+    vector<string> result;
+    for(string s: set1) {
+        if(isStringInVector(s, set2)) {
+            result.push_back(s);
+        }
+    }
+    return result;
+}
+
+vector<string> setDifference(vector<string> set1, vector<string> set2) {
+    vector<string> result;
+    for(string s: set1) {
+        if(!isStringInVector(s, set2)) {
             result.push_back(s);
         }
     }

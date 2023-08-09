@@ -326,6 +326,13 @@ void printVectorOfListOfString(vector<list<string>> input) {
     }
 }
 
+void printVectorOfString(vector<string> inputVector) {
+    for(string s: inputVector) {
+        cout << s << ", ";
+    }
+    cout << endl;
+}
+
 /**
  * @brief util function to print a vector<pair<list<string>, list<string>>>
  *

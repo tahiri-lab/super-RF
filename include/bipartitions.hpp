@@ -55,6 +55,25 @@ vector<string> getTreeSet(string inputString);
  * */
 vector<string> setUnion(vector<string> set1, vector<string> set2);
 
+/**
+ * @brief returns the intersection of two sets
+ *
+ * @param set1
+ * @param set2
+ *
+ * @return vector<string> being the intersection of the two sets
+ * */
+vector<string> setIntersection(vector<string> set1, vector<string> set2);
+
+/**
+ * @brief returns the difference between two sets --> E1\E2
+ *
+ * @param set1
+ * @param set2
+ *
+ * @return set1\set2 (E1\E2)
+ * */
+vector<string> setDifference(vector<string> set1, vector<string> set2);
 
 /**
  * util functions
