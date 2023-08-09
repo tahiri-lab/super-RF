@@ -22,6 +22,9 @@ void testBipartitions();
 void testUnion ();
 void testIntersection();
 void testDifference();
+void testBipartitionPairs();
+void testReduceBipartitionToIntersectionSet();
+void testIsPairInVector();
 
 
 #endif //NEWICKBIPARTITIONPARSER__UNITTESTS_HPP

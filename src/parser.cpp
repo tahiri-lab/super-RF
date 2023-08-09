@@ -257,6 +257,54 @@ string splitSubVectorOfPairs(vector<pair<string, int>> subVector, int departureL
 }
 
 /**
+ * @brief delete duplicates bipartitions
+ *
+ * @param inputVector vector<pair<list<string>, list<string>>>
+ * @return vector<pair<list<string>, list<string>>>, all bipartitions of a tree without duplicates
+ * */
+vector<pair<list<string>, list<string>>> deleteDuplicates(vector<pair<list<string>, list<string>>> inputVector) {
+    /*
+    vector<pair<list<string>, list<string>>> result;
+    vector<pair<list<string>, list<string>>> seenBipartitions;
+
+
+    for (pair<list<string>, list<string>> inputPair : inputVector) {
+        for(pair<list<string>, list<string>> p : seenBipartitions) {
+            if(!areListsEqual(inputPair.first, p.first)) {
+                if(!areListsEqual(inputPair.first, p.second)) {
+                    result.push_back(inputPair);
+                }
+            }
+        }
+        seenBipartitions.push_back(inputPair);
+    }
+
+    return result;
+     */
+
+    vector<pair<list<string>, list<string>>> result;
+    vector<pair<list<string>, list<string>>> seenBipartitions;
+
+    for (pair<list<string>, list<string>> inputPair : inputVector) {
+        bool duplicateFound = false;
+
+        for (pair<list<string>, list<string>>& p : seenBipartitions) {
+            if (isDuplicate(inputPair, p)) {
+                duplicateFound = true;
+                break;
+            }
+        }
+
+        if (!duplicateFound) {
+            result.push_back(inputPair);
+            seenBipartitions.push_back(inputPair);
+        }
+    }
+
+    return result;
+}
+
+/**
  * @brief gets all bipartions of a phylogenetical tree in Newick representation
  *
  * @param newickInputString newick representation of the phylogenetic tree
@@ -283,7 +331,7 @@ vector<pair<list<string>, list<string>>> getPairBipartitions(string newickInputS
     for (vector<string> v: bipartitionsVector) {
         result.push_back(createPairBipartition(allSpecies, v));
     }
-    return result;
+    return deleteDuplicates(result);
 }
 
 /**
@@ -308,10 +356,12 @@ vector<list<string>> getBipartitions(string newickInputString) {
     return bipartitionsList;
 }
 
+
+
 /**
  * UTIL functions
  * */
-void printVectorOfPairs2(const vector<pair<string, int>>& data) {
+void printVectorOfPairs2(const vector<pair<string, int>> data) {
     for (const auto& pair : data) {
         cout << "(" << pair.first << ", " << pair.second << ")" << endl;
     }
@@ -351,4 +401,21 @@ void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector) {
         }
         cout << endl;
     }
+}
+
+void printPairOfLists(pair<list<string>, list<string>> inputPair) {
+    for (string s : inputPair.first) {
+        cout << s << endl;
+    }
+    cout << "--------------------------------------------------" << endl;
+    cout << "SECOND : " << endl;
+    for (string s : inputPair.second) {
+        cout << s << endl;
+    }
+    cout << endl;
+}
+
+bool isDuplicate(pair<list<string>, list<string>> inputPair, pair<list<string>, list<string>> existingPair) {
+    return (areListsEqual(inputPair.first, existingPair.first) && areListsEqual(inputPair.second, existingPair.second)) ||
+           (areListsEqual(inputPair.first, existingPair.second) && areListsEqual(inputPair.second, existingPair.first));
 }

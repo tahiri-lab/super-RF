@@ -11,6 +11,8 @@
 #include <list>
 #include <stack>
 #include <algorithm>
+#include <unordered_set>
+#include "bipartitions.hpp"
 using namespace std;
 
 vector<string> getStringStackBipartitions(string inputString);
@@ -38,9 +40,6 @@ vector<pair<list<string>, list<string>>> getPairBipartitions(string newickInputS
 vector<list<string>> getBipartitions(string newickInputString);
 
 
-
-
-
 /**
  * UTIL functions
  * */
@@ -51,5 +50,9 @@ void printVectorOfListOfString(vector<list<string>> input);
 void printVectorOfString(vector<string> inputVector);
 
 void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector);
+
+void printPairOfLists(pair<list<string>, list<string>> inputPair);
+
+bool isDuplicate(pair<list<string>, list<string>> inputPair, pair<list<string>, list<string>> existingPair);
 
 #endif //NEWICKBIPARTITIONPARSER__PARSER_HPP

@@ -76,11 +76,34 @@ vector<string> setIntersection(vector<string> set1, vector<string> set2);
 vector<string> setDifference(vector<string> set1, vector<string> set2);
 
 /**
+ * @brief returns a set cardinal
+ *
+ * @param inputSet as vector<string>
+ * @return int, cardinal of the set
+ * */
+int setCardinal(vector<string> inputSet);
+
+
+/**
+ * @brief reduces a set of bipartitions to the one existing in a given set
+ *
+ * @param inputBipartitions departure bipartition set
+ * @param intersectionSet target set
+ *
+ * @return bipartitions existing in intersectionSet
+ * */
+vector<pair<list<string>, list<string>>> reduceBipartitionsToIntersection(vector<pair<list<string>, list<string>>> inputBipartitions, vector<string> intersectionSet);
+
+
+
+/**
  * util functions
  * */
 
 bool areListsEqual(list<string> list1, list<string> list2);
 
 bool isStringInVector(string s, vector<string> v);
+
+bool isPairInVector(pair<list<string>, list<string>> inputPair, vector<pair<list<string>, list<string>>> inputVector);
 
 #endif //NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP

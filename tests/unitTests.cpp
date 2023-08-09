@@ -5,8 +5,8 @@
 
 #include "unitTests.hpp"
 
-string T1 = "((1:1, 2:2):1, (3:3, 4:4):2, 5:5, (6:6, 7:7):3);";
-string T2 = "((1:1, 2:2):1,8:8 (5:5, 9:9):2, 3:3, (10:10, 4:4):3);";
+string T1 = "((1:1, 2:2):1, (3:3, 4:4):2, (5:5, (6:6, 7:7):3):3);";
+string T2 = "((((1:1, 2:2):1,8:8):1,(5:5, 9:9):2):1, (3:3, (10:10, 4:4):3):2);";
 
 
 string newickString = "(ant:17, (bat:31, cow:22):7, dog:22, (elk:33, fox:12):40);";
@@ -87,6 +87,62 @@ void testDifference() {
     cout << "-----------------"<< endl;
     printVectorOfString(differenceVector1);
 }
+
+void testBipartitionPairs() {
+    vector<pair<list<string>, list<string>>> T1pairBipartitions;
+    T1pairBipartitions = getPairBipartitions(T1);
+    cout << "Bipartitions of : " << T1 << " :"<< endl;
+    printVectorOfPairs(T1pairBipartitions);
+
+    vector<pair<list<string>, list<string>>> T2pairBipartitions;
+    T2pairBipartitions = getPairBipartitions(T2);
+    cout << "Bipartitions of : " << T2 << " :"<< endl;
+    printVectorOfPairs(T2pairBipartitions);
+}
+
+void testReduceBipartitionToIntersectionSet() {
+    vector<string> set1 = getTreeSet(T1);
+    vector<string> set2 = getTreeSet(T2);
+    vector<string> intersectionSet = setIntersection(set1, set2);
+
+    vector<pair<list<string>, list<string>>> T1pairBipartitions;
+    T1pairBipartitions = getPairBipartitions(T1);
+
+    vector<pair<list<string>, list<string>>> T2pairBipartitions;
+    T2pairBipartitions = getPairBipartitions(T2);
+
+    vector<pair<list<string>, list<string>>> T1reducedBipartitions = reduceBipartitionsToIntersection(T1pairBipartitions, intersectionSet);
+    vector<pair<list<string>, list<string>>> T2reducedBipartitions = reduceBipartitionsToIntersection(T2pairBipartitions, intersectionSet);
+
+    cout << "Reducing bipartitions to this set : " << endl;
+    printVectorOfString(intersectionSet);
+    cout << "T1 :" << endl;
+    printVectorOfPairs(T1reducedBipartitions);
+    cout << "T2 :" << endl;
+    printVectorOfPairs(T2reducedBipartitions);
+}
+
+void testIsPairInVector() {
+    cout << "CHECK if a pair is in a vector of pairs" << endl;
+    vector<string> set1 = getTreeSet(T1);
+    vector<string> set2 = getTreeSet(T2);
+    vector<string> intersectionSet = setIntersection(set1, set2);
+
+    pair<list<string>, list<string>> comparedPair;
+
+    vector<pair<list<string>, list<string>>> T2pairBipartitions;
+    T2pairBipartitions = getPairBipartitions(T2);
+    vector<pair<list<string>, list<string>>> T2reducedBipartitions = reduceBipartitionsToIntersection(T2pairBipartitions, intersectionSet);
+
+    comparedPair = T2reducedBipartitions[1];
+    cout << "Is the pair :" << endl;
+    printPairOfLists(comparedPair);
+    cout << "In the vector : " << endl;
+    printVectorOfPairs(T2reducedBipartitions);
+    cout << "====> " << isPairInVector(comparedPair, T2reducedBipartitions) << endl;
+}
+
+
 
 
 
