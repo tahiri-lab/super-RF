@@ -13,9 +13,35 @@ using namespace std;
 //TODO store branches length somewhere
 
 void unitTests();
+void demo();
+bool endsWith(string fullString, const string ending);
 
-int main() {
-    unitTests();
+// two strings to store the trees we want to compare
+string Tree1 = "";
+string Tree2 = "";
+
+int main(int argc, char* argv[]) {
+    //if program compiled with make test :
+    if (argc == 1) {
+        demo();
+    }
+
+    if (argc > 1) {
+        if (strcmp(argv[1], "test") == 0) {
+            unitTests();
+        } else {
+            if(argc == 3){
+                Tree1 = argv[1];
+                Tree2 = argv[2];
+                SRF(Tree1, Tree2);
+            }
+            if(endsWith(argv[1], ".txt") && argc == 2) {
+                //TODO SRF with txt file
+                cout << "txt file" << endl;
+            }
+        }
+    }
+
     return 0;
 }
 
@@ -42,6 +68,26 @@ void unitTests() {
     testBipartitionOccurences();
     cout << "\n---------------------------------------------------------------------------------\n" << endl;
     testBipartitionOccurenceDifference();
-     */
+    cout << "\n---------------------------------------------------------------------------------\n" << endl;
     testSRF();
+     */
+
+}
+
+void demo() {
+    cout << "This program calculates SRF distance between two phylogenetical trees." << endl;
+    cout << "To use it, you need to specify two phylogenetic trees in Newick format, using :" << endl;
+    cout << "   - a txt file containing both trees : ./SRF yourFile.txt" << endl;
+    cout << "   - by putting your trees as arguments : ./SRF newick1 newick2" << endl;
+}
+
+/**
+ * @brief checks if a string ends with a specific ending
+ */
+bool endsWith(string fullString, const string ending) {
+    if (fullString.length() >= ending.length()) {
+        return (0 == fullString.compare(fullString.length() - ending.length(), ending.length(), ending));
+    } else {
+        return false;
+    }
 }
