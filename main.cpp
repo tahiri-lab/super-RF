@@ -33,13 +33,17 @@ int main(int argc, char* argv[]) {
             if(argc == 3){
                 Tree1 = argv[1];
                 Tree2 = argv[2];
-                SRF(Tree1, Tree2);
             }
             if(endsWith(argv[1], ".txt") && argc == 2) {
                 //TODO SRF with txt file
-                cout << "txt file" << endl;
+                pair<string, string> newickStrings = extractNewickFromFile(argv[1]);
+                Tree1 = newickStrings.first;
+                Tree2 = newickStrings.second;
+                cout << Tree1 << endl;
+                cout << Tree2 << endl;
             }
         }
+        SRF(Tree1, Tree2);
     }
 
     return 0;
@@ -69,9 +73,8 @@ void unitTests() {
     cout << "\n---------------------------------------------------------------------------------\n" << endl;
     testBipartitionOccurenceDifference();
     cout << "\n---------------------------------------------------------------------------------\n" << endl;
-    testSRF();
      */
-
+    testSRF();
 }
 
 void demo() {

@@ -12,6 +12,12 @@
 #include <stack>
 #include <algorithm>
 #include <unordered_set>
+
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <utility>
+
 #include "bipartitions.hpp"
 using namespace std;
 
@@ -54,5 +60,7 @@ void printVectorOfPairs(vector<pair<list<string>, list<string>>> vector);
 void printPairOfLists(pair<list<string>, list<string>> inputPair);
 
 bool isDuplicate(pair<list<string>, list<string>> inputPair, pair<list<string>, list<string>> existingPair);
+
+pair<string, string> extractNewickFromFile(string inputFile);
 
 #endif //NEWICKBIPARTITIONPARSER__PARSER_HPP

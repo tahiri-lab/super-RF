@@ -419,3 +419,33 @@ bool isDuplicate(pair<list<string>, list<string>> inputPair, pair<list<string>, 
     return (areListsEqual(inputPair.first, existingPair.first) && areListsEqual(inputPair.second, existingPair.second)) ||
            (areListsEqual(inputPair.first, existingPair.second) && areListsEqual(inputPair.second, existingPair.first));
 }
+
+
+
+/**
+ * @brief extracts newick strings from a txt file
+ * */
+pair<string, string> extractNewickFromFile(string inputFile) {
+    std::ifstream input(inputFile);
+    if (!input.is_open()) {
+        std::cerr << "Unable to open the file." << std::endl;
+        return std::make_pair("", "");
+    }
+
+    std::pair<std::string, std::string> extractedPair;
+    std::string firstString, secondString;
+
+    std::getline(input, firstString, ';');
+    std::getline(input, secondString, ';');
+
+    input.close();
+
+    extractedPair = std::make_pair(firstString, secondString);
+
+    // Remove '\n' at the beginning of the second string
+    if (!extractedPair.second.empty() && extractedPair.second[0] == '\n') {
+        extractedPair.second.erase(0, 1);
+    }
+
+    return extractedPair;
+}
