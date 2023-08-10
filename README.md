@@ -1,15 +1,14 @@
 # NewickBipartitionParser
-C++ program calculating SRF distance between two phylogenetic trees.
 
-# How to compile
+**NewickBipartitionParser** is a C++ program designed to calculate the Symmetric Difference-Robinson-Foulds (SRF) distance between two phylogenetic trees. This tool enables efficient comparison of the structural differences between two tree topologies, aiding in the analysis of evolutionary relationships.
 
-Download the files, open the folder in your terminal and compile the project with "make" command.
+## How to Compile
 
-The executable is called SRF.
+To compile the NewickBipartitionParser program, follow these steps:
 
-# How to use the program
-The program compares two phylogenetic trees.
+1. **Download the Files:** Obtain the program files from the designated repository or source.
+2. **Open Terminal:** Navigate to the folder where you've saved the program files using your terminal.
+3. **Compile:** Execute the following command to compile the project using the provided Makefile:
 
-To use it properly, you can pass your pair of trees as :
-- a txt file containing both of your trees : ./SRF yourFile.txt
-- each tree being an argument : ./SRF 'newick1' 'newick2'
+   ```bash
+   make
