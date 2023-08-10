@@ -11,5 +11,5 @@ The executable is called SRF.
 The program compares two phylogenetic trees.
 
 To use it properly, you can pass your pair of trees as :
-    - a txt file containing both of your trees : ./SRF yourFile.txt
-    - each tree being an argument : ./SRF 'newick1' 'newick2'
+- a txt file containing both of your trees : ./SRF yourFile.txt
+- each tree being an argument : ./SRF 'newick1' 'newick2'
