@@ -25,6 +25,9 @@ void testDifference();
 void testBipartitionPairs();
 void testReduceBipartitionToIntersectionSet();
 void testIsPairInVector();
+void testBipartitionOccurences();
+void testBipartitionOccurenceDifference();
+void testSRF();
 
 
 #endif //NEWICKBIPARTITIONPARSER__UNITTESTS_HPP

@@ -8,7 +8,6 @@ int getBipartitionSize(pair<list<string>, list<string>> inputBipartition) {
     return inputBipartition.first.size();
 }
 
-
 vector<list<string>> setDifference(vector<list<string>> set1, vector<list<string>> set2) {
     vector<list<string>> result;
 
@@ -24,7 +23,6 @@ vector<list<string>> setDifference(vector<list<string>> set1, vector<list<string
             result.push_back(l1);
         }
     }
-
     return result;
 }
 
@@ -102,7 +100,6 @@ vector<pair<list<string>, list<string>>> reduceBipartitionsToIntersection(vector
     return result;
 }
 
-//TODO test this function
 vector<pair<pair<list<string>, list<string>>, int>> getBipartitionOccurences(vector<pair<list<string>, list<string>>> inputBipartitions) {
     vector<pair<pair<list<string>, list<string>>, int>> result;
     vector<pair<list<string>, list<string>>> visitedBipartitions;
@@ -125,6 +122,122 @@ vector<pair<pair<list<string>, list<string>>, int>> getBipartitionOccurences(vec
     }
     return result;
 }
+
+pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, list<string>>, int>> bipartitions1, vector<pair<pair<list<string>, list<string>>, int>> bipartitions2) {
+    pair<int, int> result;
+    int currentDif = 0;
+    int nulResultCount = 0;
+    int totalSum = 0;
+
+    bool isTreated = false;
+
+    vector<pair<list<string>, list<string>>> visitedBipartitions;
+
+    for(pair<pair<list<string>, list<string>>, int> pairs1: bipartitions1) {
+        for(pair<pair<list<string>, list<string>>, int> pairs2: bipartitions2) {
+            if (areBipartitionsEqual(pairs1.first, pairs2.first)) {
+                currentDif = abs(pairs1.second - pairs2.second);
+                if (currentDif == 0) {
+                    nulResultCount ++;
+                } else {
+                    totalSum += currentDif;
+                }
+                isTreated = true;
+            }
+        }
+        if (!isTreated) {
+            totalSum += pairs1.second;
+        }
+        visitedBipartitions.push_back(pairs1.first);
+        isTreated = false;
+        currentDif = 0;
+    }
+
+    for(pair<pair<list<string>, list<string>>, int> pairs2 : bipartitions2) {
+        if(!isPairInVector(pairs2.first, visitedBipartitions)) {
+            totalSum += pairs2.second;
+            visitedBipartitions.push_back(pairs2.first);
+        }
+    }
+
+    result.first = totalSum;
+    result.second = nulResultCount;
+    return result;
+}
+
+double SRF(string newick1, string newick2) {
+    double result = 0;
+
+    //initializing all needed variables
+    int unionCard = 0;
+    int nullResultCard = 0;
+    int set1_set2Card = 0;
+    int set2_set1Card = 0;
+    int bipartitionsOccurenceSum = 0;
+
+    vector<string> set1;
+    vector<string> set2;
+    vector<string> intersectionSet;
+    vector<string> unionSet;
+
+    // set1\set2 and set2\set1
+    vector<string> set1_set2;
+    vector<string> set2_set1;
+
+    //vector of each tree bipartitions
+    vector<pair<list<string>, list<string>>> T1bipartitions;
+    vector<pair<list<string>, list<string>>> T2bipartitions;
+
+    vector<pair<list<string>, list<string>>> T1reducedBipartitions;
+    vector<pair<list<string>, list<string>>> T2reducedBipartitions;
+
+    vector<pair<pair<list<string>, list<string>>, int>> T1bipartitionsOccurence;
+    vector<pair<pair<list<string>, list<string>>, int>> T2bipartitionsOccurence;
+
+    pair<int, int> bipartitionOccurenceDifference;
+
+    //filling data structures :
+    set1 = getTreeSet(newick1);
+    set2 = getTreeSet(newick2);
+    intersectionSet = setIntersection(set1, set2);
+    unionSet = setUnion(set1, set2);
+    set1_set2 = setDifference(set1, set2);
+    set2_set1 = setDifference(set2, set1);
+
+    //getting all bipartitions for both trees
+    T1bipartitions = getPairBipartitions(newick1);
+    T2bipartitions = getPairBipartitions(newick2);
+
+    //reducing bepartitions to intersectionSet
+    T1reducedBipartitions = reduceBipartitionsToIntersection(T1bipartitions, intersectionSet);
+    T2reducedBipartitions = reduceBipartitionsToIntersection(T2bipartitions, intersectionSet);
+
+    //getting the number of occurence for each bipartition
+    T1bipartitionsOccurence = getBipartitionOccurences(T1reducedBipartitions);
+    T2bipartitionsOccurence = getBipartitionOccurences(T2reducedBipartitions);
+
+    bipartitionOccurenceDifference = bipartitionOccurencesDifference(T1bipartitionsOccurence, T2bipartitionsOccurence);
+
+    //filing variables:
+    unionCard = unionSet.size();
+    set1_set2Card = set1_set2.size();
+    set2_set1Card = set2_set1.size();
+    bipartitionsOccurenceSum = bipartitionOccurenceDifference.first;
+    nullResultCard = bipartitionOccurenceDifference.second;
+
+    printSRFCalculation(unionCard, set1_set2Card, set2_set1Card, bipartitionsOccurenceSum, nullResultCard);
+
+    result = (bipartitionsOccurenceSum + nullResultCard + set1_set2Card + set2_set1Card) / ((2 * unionCard) -6);
+    double numerator = bipartitionsOccurenceSum + nullResultCard + set1_set2Card + set2_set1Card;
+
+    double denominator = (2 * unionCard) -6;
+
+    result = numerator / denominator;
+
+    cout << "EQUALS " << fixed << setprecision(2) << result << endl;
+    return result;
+}
+
 
 /**
  * Util functions
@@ -160,3 +273,48 @@ bool isPairInVector(pair<list<string>, list<string>> inputPair, vector<pair<list
     }
     return result;
 }
+
+void printBipartitionOccurences(const vector<pair<pair<list<string>, list<string>>, int>>& data) {
+    for (const auto& entry : data) {
+        const auto& bipartitionPair = entry.first;
+        const auto& firstList = bipartitionPair.first;
+        const auto& secondList = bipartitionPair.second;
+        int count = entry.second;
+
+        cout << "First List: ";
+        for (const auto& str : firstList) {
+            cout << str << " ";
+        }
+
+        cout << "\nSecond List: ";
+        for (const auto& str : secondList) {
+            cout << str << " ";
+        }
+
+        cout << "\nCount: " << count << "\n\n";
+    }
+}
+
+bool areBipartitionsEqual(pair<list<string>, list<string>> bip1, pair<list<string>, list<string>> bip2) {
+    bool result = false;
+    if (areListsEqual(bip1.first, bip2.first)) {
+        if(areListsEqual(bip1.second, bip2.second)) {
+            result = true;
+        }
+    }
+    if(areListsEqual(bip1.second, bip2.first)) {
+        if(areListsEqual(bip1.first, bip2.second)) {
+            result = true;
+        }
+    }
+    return result;
+}
+
+
+void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard) {
+    cout << "CALCULATING SRF :" << endl;
+    cout << bipartitionsOccurenceSum << " + " << nullResultCard << " + " << set1_set2Card << " + " << set2_set1Card << endl;
+    cout << "--------------------" << endl;
+    cout << "2 x " << unionCard << " - 6" << endl;
+}
+

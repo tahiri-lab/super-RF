@@ -36,6 +36,12 @@ void unitTests() {
     testBipartitionPairs();
     cout << "\n---------------------------------------------------------------------------------\n" << endl;
     testReduceBipartitionToIntersectionSet();
-    */
+    cout << "\n---------------------------------------------------------------------------------\n" << endl;
     testIsPairInVector();
+    cout << "\n---------------------------------------------------------------------------------\n" << endl;
+    testBipartitionOccurences();
+    cout << "\n---------------------------------------------------------------------------------\n" << endl;
+    testBipartitionOccurenceDifference();
+     */
+    testSRF();
 }

@@ -142,9 +142,50 @@ void testIsPairInVector() {
     cout << "====> " << isPairInVector(comparedPair, T2reducedBipartitions) << endl;
 }
 
+void testBipartitionOccurences() {
+    vector<string> set1 = getTreeSet(T1);
+    vector<string> set2 = getTreeSet(T2);
+    vector<string> intersectionSet = setIntersection(set1, set2);
 
+    vector<pair<list<string>, list<string>>> T2pairBipartitions;
+    T2pairBipartitions = getPairBipartitions(T2);
+    vector<pair<list<string>, list<string>>> T2reducedBipartitions = reduceBipartitionsToIntersection(T2pairBipartitions, intersectionSet);
 
+    vector<pair<pair<list<string>, list<string>>, int>> bipartitionsOccurence = getBipartitionOccurences(T2reducedBipartitions);
+    printBipartitionOccurences(bipartitionsOccurence);
 
+}
+
+void testBipartitionOccurenceDifference() {
+    vector<string> set1 = getTreeSet(T1);
+    vector<string> set2 = getTreeSet(T2);
+    vector<string> intersectionSet = setIntersection(set1, set2);
+
+    vector<pair<list<string>, list<string>>> T1pairBipartitions;
+    T1pairBipartitions = getPairBipartitions(T1);
+
+    vector<pair<list<string>, list<string>>> T2pairBipartitions;
+    T2pairBipartitions = getPairBipartitions(T2);
+
+    vector<pair<list<string>, list<string>>> T1reducedBipartitions = reduceBipartitionsToIntersection(T1pairBipartitions, intersectionSet);
+    vector<pair<list<string>, list<string>>> T2reducedBipartitions = reduceBipartitionsToIntersection(T2pairBipartitions, intersectionSet);
+
+    vector<pair<pair<list<string>, list<string>>, int>> T1bipartitionsOccurence = getBipartitionOccurences(T1reducedBipartitions);
+    vector<pair<pair<list<string>, list<string>>, int>> T2bipartitionsOccurence = getBipartitionOccurences(T2reducedBipartitions);
+
+    printBipartitionOccurences(T1bipartitionsOccurence);
+    cout << "-------------------------" << endl;
+    printBipartitionOccurences(T2bipartitionsOccurence);
+    cout << "-------------------------" << endl;
+
+    pair<int, int> result = bipartitionOccurencesDifference(T1bipartitionsOccurence,T2bipartitionsOccurence);
+    cout << "Sum : " << result.first << endl;
+    cout << "Card of 0 : " << result.second << endl;
+}
+
+void testSRF() {
+    int SRFvalue = SRF(T1, T2);
+}
 
 
 
