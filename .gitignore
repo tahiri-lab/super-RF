@@ -1,5 +1,6 @@
 .idea
 CMakeLists.txt
 bipartitionParser
+SRF
 .DS_Store
 cmake-build-debug
