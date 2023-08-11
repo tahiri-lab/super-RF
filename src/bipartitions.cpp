@@ -88,15 +88,14 @@ vector<pair<list<string>, list<string>>> reduceBipartitionsToIntersection(vector
                 currentSecondList.push_back(s);
             }
         }
-        if (!currentFirstList.empty()) {
-            currentPair.first = currentFirstList;
-            currentPair.second = currentSecondList;
-            result.push_back(currentPair);
-        }
+
+        currentPair.first = currentFirstList;
+        currentPair.second = currentSecondList;
+        result.push_back(currentPair);
+
         currentFirstList.clear();
         currentSecondList.clear();
     }
-
     return result;
 }
 
@@ -137,16 +136,21 @@ pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, li
         for(pair<pair<list<string>, list<string>>, int> pairs2: bipartitions2) {
             if (areBipartitionsEqual(pairs1.first, pairs2.first)) {
                 currentDif = abs(pairs1.second - pairs2.second);
-                if (currentDif == 0) {
-                    nulResultCount ++;
-                } else {
+                //if (currentDif == 0) {
+                //    nulResultCount ++;
+                //} else {
                     totalSum += currentDif;
-                }
+                //}
                 isTreated = true;
             }
         }
         if (!isTreated) {
-            totalSum += pairs1.second;
+            if (!pairs1.first.first.empty() && !pairs1.first.second.empty()) { //if a bipartition doesn't contain all species of intersectionSet into one side
+                totalSum += pairs1.second;
+            } else {
+                nulResultCount ++;
+            }
+
         }
         visitedBipartitions.push_back(pairs1.first);
         isTreated = false;
@@ -155,7 +159,11 @@ pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, li
 
     for(pair<pair<list<string>, list<string>>, int> pairs2 : bipartitions2) {
         if(!isPairInVector(pairs2.first, visitedBipartitions)) {
-            totalSum += pairs2.second;
+            if (!pairs2.first.first.empty() && !pairs2.first.second.empty()) { //if a bipartition doesn't contain all species of intersectionSet into one side
+                totalSum += pairs2.second;
+            } else {
+                nulResultCount ++;
+            }
             visitedBipartitions.push_back(pairs2.first);
         }
     }
@@ -217,6 +225,13 @@ double SRF(string newick1, string newick2) {
     T2bipartitionsOccurence = getBipartitionOccurences(T2reducedBipartitions);
 
     bipartitionOccurenceDifference = bipartitionOccurencesDifference(T1bipartitionsOccurence, T2bipartitionsOccurence);
+
+    //TODO debug
+    cout << "------------------FIRST TREE : ----------------------------" << endl;
+    printBipartitionOccurences(T1bipartitionsOccurence);
+    cout << "----------------------------SECOND TREE : ----------------------------" << endl;
+    printBipartitionOccurences(T2bipartitionsOccurence);
+
 
     //filing variables:
     unionCard = unionSet.size();
