@@ -226,12 +226,6 @@ double SRF(string newick1, string newick2) {
 
     bipartitionOccurenceDifference = bipartitionOccurencesDifference(T1bipartitionsOccurence, T2bipartitionsOccurence);
 
-    //TODO debug
-    cout << "------------------FIRST TREE : ----------------------------" << endl;
-    printBipartitionOccurences(T1bipartitionsOccurence);
-    cout << "----------------------------SECOND TREE : ----------------------------" << endl;
-    printBipartitionOccurences(T2bipartitionsOccurence);
-
 
     //filing variables:
     unionCard = unionSet.size();
