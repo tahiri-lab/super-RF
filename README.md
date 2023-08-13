@@ -1,17 +1,23 @@
-# NewickBipartitionParser
+# Super-RF distance calculator
 C++ program calculating SRF distance between two phylogenetic trees.
 
-# How to compile
+## Compile
 
-Download the files, open the folder in your terminal and compile the project with "make" command.
+Download the files, open the folder in your terminal :
+- ```make``` compiles the project and create ./SRF executable file on your machine.
+- ```make test``` compiles the project and create ./SRF executable file, then runs a series of tests
 
-The executable is called SRF.
 
-# How to use
-The program compares two phylogenetic trees.
+## Execute
+The program compares two phylogenetic trees, so it needs a pair of phylogenetic trees as entries.
 
 To use it properly, you can pass your pair of trees as :
 - a txt file containing both of your trees : ./SRF yourFile.txt
-- each tree being an argument : ./SRF 'newick1' 'newick2'
+- passing both trees as arguments : ./SRF 'newick1' 'newick2'
 
-an example set of trees is available in treesExample.txt.
+An example set of trees is available in treesExample.txt file.
+
+## Function library
+
+The program contains some functions to manipulate bipartitions and species sets.
+

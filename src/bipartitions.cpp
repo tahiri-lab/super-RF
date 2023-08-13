@@ -26,11 +26,9 @@ vector<list<string>> setDifference(vector<list<string>> set1, vector<list<string
     return result;
 }
 
-
 vector<string> getTreeSet(string inputString) {
     return getAllTaxons(inputString);
 }
-
 
 vector<string> setUnion(vector<string> set1, vector<string> set2) {
     vector<string> result;
@@ -136,11 +134,7 @@ pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, li
         for(pair<pair<list<string>, list<string>>, int> pairs2: bipartitions2) {
             if (areBipartitionsEqual(pairs1.first, pairs2.first)) {
                 currentDif = abs(pairs1.second - pairs2.second);
-                //if (currentDif == 0) {
-                //    nulResultCount ++;
-                //} else {
                     totalSum += currentDif;
-                //}
                 isTreated = true;
             }
         }
@@ -318,7 +312,6 @@ bool areBipartitionsEqual(pair<list<string>, list<string>> bip1, pair<list<strin
     }
     return result;
 }
-
 
 void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard) {
     cout << "CALCULATING SRF :" << endl;
