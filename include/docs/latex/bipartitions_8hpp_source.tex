@@ -1,0 +1,63 @@
+\doxysection{bipartitions.\+hpp}
+\hypertarget{bipartitions_8hpp_source}{}\label{bipartitions_8hpp_source}\mbox{\hyperlink{bipartitions_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Arthur\ Debeaupte\ on\ 07/08/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ NEWICKBIPARTITIONPARSER\_\_BIPARTITIONS\_HPP}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ NEWICKBIPARTITIONPARSER\_\_BIPARTITIONS\_HPP}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}parser.hpp"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bipartitions_8hpp_aad1fd3e3e707d95fab5b877f9723c9c3}{getBipartitionSize}}(pair<list<string>,\ list<string>>\ inputBipartition);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ vector<list<string>>\ \mbox{\hyperlink{bipartitions_8hpp_ab6bb5ed99a6f473ba27f76474a8ff273}{setDifference}}\ (vector<list<string>>\ set1,\ vector<list<string>>\ set2\ );}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ vector<string>\ \mbox{\hyperlink{bipartitions_8hpp_a6b29084337cf74eec25e4f8a7cc6fcbb}{getTreeSet}}(\textcolor{keywordtype}{string}\ inputString);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ vector<string>\ \mbox{\hyperlink{bipartitions_8hpp_af2ba7dd9892008894a3deed9ec70dfa6}{setUnion}}(vector<string>\ set1,\ vector<string>\ set2);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ vector<string>\ \mbox{\hyperlink{bipartitions_8hpp_ad643db538750e557f76b4b791d09f328}{setIntersection}}(vector<string>\ set1,\ vector<string>\ set2);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00080\ vector<string>\ \mbox{\hyperlink{bipartitions_8hpp_ab6bb5ed99a6f473ba27f76474a8ff273}{setDifference}}(vector<string>\ set1,\ vector<string>\ set2);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{bipartitions_8hpp_a319cd6bf58eb7c074247c774ae9048e0}{setCardinal}}(vector<string>\ inputSet);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00099\ vector<pair<list<string>,\ list<string>>>\ \mbox{\hyperlink{bipartitions_8hpp_ad3643f546e86cd011ee86677d2cb13ef}{reduceBipartitionsToIntersection}}(vector<pair<list<string>,\ list<string>>>\ inputBipartitions,\ vector<string>\ intersectionSet);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00108\ vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\ \mbox{\hyperlink{bipartitions_8hpp_acd97cff16a4783ecaf42c256077a75cf}{getBipartitionOccurences}}(vector<pair<list<string>,\ list<string>>>\ inputBipartitions);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00119\ pair<int,\ int>\ \mbox{\hyperlink{bipartitions_8hpp_ad7985b5bcdfa354260c94c720746108b}{bipartitionOccurencesDifference}}(vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\ bipartitions1,\ vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\ bipartitions2);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00129\ pair<int,\ int>\ \mbox{\hyperlink{bipartitions_8hpp_ad7985b5bcdfa354260c94c720746108b}{bipartitionOccurencesDifference}}(vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\ bipartitions1,\ vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\ bipartitions2);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{bipartitions_8hpp_a3cbca3f50e0c9ea15d74897c506a52a3}{SRF}}(\textcolor{keywordtype}{string}\ newick1,\ \textcolor{keywordtype}{string}\ newick2);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{bipartitions_8hpp_a3450db0483a4da010f796ee9f88427e7}{areListsEqual}}(list<string>\ list1,\ list<string>\ list2);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{bipartitions_8hpp_a389c1d7ca036961849f82175a6707da2}{isStringInVector}}(\textcolor{keywordtype}{string}\ s,\ vector<string>\ v);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{bipartitions_8hpp_a9e80c0364ad8f480dcfb460a51a6c58f}{isPairInVector}}(pair<list<string>,\ list<string>>\ inputPair,\ vector<pair<list<string>,\ list<string>>>\ inputVector);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bipartitions_8hpp_a2b3010d74e56be71942cfd3c4aba0e72}{printBipartitionOccurences}}(\textcolor{keyword}{const}\ vector<pair<pair<list<string>,\ list<string>>,\ \textcolor{keywordtype}{int}>>\&\ data);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{bipartitions_8hpp_a217ec4ac8d1dc41fa6835524c145d89f}{areBipartitionsEqual}}(pair<list<string>,\ list<string>>\ bip1,\ pair<list<string>,\ list<string>>\ bip2);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{bipartitions_8hpp_a740009ab7b92a6b5fa84d312f2c22ab2}{printSRFCalculation}}(\textcolor{keywordtype}{int}\ unionCard,\ \textcolor{keywordtype}{int}\ set1\_set2Card,\ \textcolor{keywordtype}{int}\ set2\_set1Card,\ \textcolor{keywordtype}{int}\ bipartitionsOccurenceSum,\ \textcolor{keywordtype}{int}\ nullResultCard);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//NEWICKBIPARTITIONPARSER\_\_BIPARTITIONS\_HPP}}
+
+\end{DoxyCode}

@@ -2,6 +2,9 @@
 // Created by Arthur Debeaupte on 07/08/2023.
 //
 
+/**
+ * @file header file for bipartitions manipulation functions
+ * */
 #ifndef NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP
 #define NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP
 
