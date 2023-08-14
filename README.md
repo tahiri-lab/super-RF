@@ -21,3 +21,8 @@ An example set of trees is available in treesExample.txt file.
 
 The program contains some functions to manipulate bipartitions and species sets.
 
+## Documentation
+
+Code documentation is available in the "docs" repository.
+
+Open the html/index.html file in your browser.
