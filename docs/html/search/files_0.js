@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bipartitions_2ehpp_0',['bipartitions.hpp',['../bipartitions_8hpp.html',1,'']]]
+  ['srf_2ehpp_0',['SRF.hpp',['../_s_r_f_8hpp.html',1,'']]]
 ];

@@ -14,7 +14,7 @@
 #include <algorithm>
 
 #include "../include/parser.hpp"
-#include "../include/bipartitions.hpp"
+#include "../include/SRF.hpp"
 
 
 void testPairBipartitions();

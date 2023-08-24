@@ -5,8 +5,8 @@
 /**
  * @file header file for bipartitions manipulation functions
  * */
-#ifndef NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP
-#define NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP
+#ifndef NEWICKBIPARTITIONPARSER__SRF_HPP
+#define NEWICKBIPARTITIONPARSER__SRF_HPP
 
 #include <iostream>
 #include <string>
@@ -96,27 +96,18 @@ int setCardinal(vector<string> inputSet);
  *
  * @return bipartitions existing in intersectionSet
  * */
-vector<pair<list<string>, list<string>>> reduceBipartitionsToIntersection(vector<pair<list<string>, list<string>>> inputBipartitions, vector<string> intersectionSet);
+vector<pair<list<string>, list<string>>> reduceBipartitionsToIntersection(vector<pair<list<string>,
+        list<string>>> inputBipartitions, vector<string> intersectionSet);
 
 /**
  * @brief counts the number of time each bipartition appears in a set of bipartition pairs
  *
  * @param inputBipartitions a vector<pair<list<string>, list<string>>> containing a set of bipartitions
- * @return vector<pair<pair<list<string>, list<string>>, int>>, each pair corresponding to the bipartition and the number
- *          of time it appears in the initial bipartitions set
+ * @return vector<pair<pair<list<string>, list<string>>, int>>, each pair corresponding to the bipartition and the
+ *          number of time it appears in the initial bipartitions set
  * */
-vector<pair<pair<list<string>, list<string>>, int>> getBipartitionOccurences(vector<pair<list<string>, list<string>>> inputBipartitions);
-
-/**
- * @brief makes the difference between the number of occurence of each similar bipartition between two bipartition sets
- *
- * @param bipartitions1
- * @param bipartitions2
- *
- * @return pair<int, int>, first int : sum of the results of every difference
- *         second int : number of time the result of the difference is equal to 0
- * */
-pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, list<string>>, int>> bipartitions1, vector<pair<pair<list<string>, list<string>>, int>> bipartitions2);
+vector<pair<pair<list<string>, list<string>>, int>> getBipartitionOccurences(vector<pair<list<string>,
+        list<string>>> inputBipartitions);
 
 /**
  * @brief calculates the sum of absolute differences of similar bipartitions occurences and the cardinal of null results
@@ -126,7 +117,8 @@ pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, li
  *
  * @return pair<int, int>, first int : sum of the absolute value of occurences difference for two identical bipartitions
  * */
-pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, list<string>>, int>> bipartitions1, vector<pair<pair<list<string>, list<string>>, int>> bipartitions2);
+pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, list<string>>, int>> bipartitions1,
+                                               vector<pair<pair<list<string>, list<string>>, int>> bipartitions2);
 
 /**
  * @brief calculates SRF distance for two phylogenetical trees
@@ -152,6 +144,7 @@ void printBipartitionOccurences(const vector<pair<pair<list<string>, list<string
 
 bool areBipartitionsEqual(pair<list<string>, list<string>> bip1, pair<list<string>, list<string>> bip2);
 
-void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard);
+void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum,
+                         int nullResultCard);
 
-#endif //NEWICKBIPARTITIONPARSER__BIPARTITIONS_HPP
+#endif //NEWICKBIPARTITIONPARSER__SRF_HPP

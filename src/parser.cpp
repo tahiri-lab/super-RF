@@ -416,8 +416,10 @@ void printPairOfLists(pair<list<string>, list<string>> inputPair) {
 }
 
 bool isDuplicate(pair<list<string>, list<string>> inputPair, pair<list<string>, list<string>> existingPair) {
-    return (areListsEqual(inputPair.first, existingPair.first) && areListsEqual(inputPair.second, existingPair.second)) ||
-           (areListsEqual(inputPair.first, existingPair.second) && areListsEqual(inputPair.second, existingPair.first));
+    return (areListsEqual(inputPair.first, existingPair.first) &&
+            areListsEqual(inputPair.second, existingPair.second)) ||
+           (areListsEqual(inputPair.first, existingPair.second) &&
+           areListsEqual(inputPair.second, existingPair.first));
 }
 
 

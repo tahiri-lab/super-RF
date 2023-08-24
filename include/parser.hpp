@@ -18,7 +18,7 @@
 #include <vector>
 #include <utility>
 
-#include "bipartitions.hpp"
+#include "SRF.hpp"
 using namespace std;
 
 vector<string> getStringStackBipartitions(string inputString);
