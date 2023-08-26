@@ -19,7 +19,7 @@ string Tree1 = "";
 string Tree2 = "";
 
 /**
- * Custom this function as you want and execute it with "make user" command
+ * blank function executed with "make user" command
  * */
 void user() {
     cout << "User custom function :" << endl;
