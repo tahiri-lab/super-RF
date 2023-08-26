@@ -12,6 +12,8 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+double \mbox{\hyperlink{_s_r_f_8hpp_aa057c3a185f8f1efcdcc925fe3881473}{SRF}} (string newick1, string newick2, bool print\+Details)
+\begin{DoxyCompactList}\small\item\em calculates SRF distance for two phylogenetical trees \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_s_r_f_8hpp_aad1fd3e3e707d95fab5b877f9723c9c3}{get\+Bipartition\+Size}} (pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ input\+Bipartition)
 \begin{DoxyCompactList}\small\item\em get biparition size \end{DoxyCompactList}\item 
 vector$<$ list$<$ string $>$ $>$ \mbox{\hyperlink{_s_r_f_8hpp_ab6bb5ed99a6f473ba27f76474a8ff273}{set\+Difference}} (vector$<$ list$<$ string $>$ $>$ set1, vector$<$ list$<$ string $>$ $>$ set2)
@@ -32,20 +34,18 @@ vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>
 \begin{DoxyCompactList}\small\item\em counts the number of time each bipartition appears in a set of bipartition pairs \end{DoxyCompactList}\item 
 pair$<$ int, int $>$ \mbox{\hyperlink{_s_r_f_8hpp_ad7985b5bcdfa354260c94c720746108b}{bipartition\+Occurences\+Difference}} (vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$ bipartitions1, vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$ bipartitions2)
 \begin{DoxyCompactList}\small\item\em calculates the sum of absolute differences of similar bipartitions occurences and the cardinal of null results \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{_s_r_f_8hpp_a3cbca3f50e0c9ea15d74897c506a52a3}{SRF}} (string newick1, string newick2)
-\begin{DoxyCompactList}\small\item\em calculates SRF distance for two phylogenetical trees \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_r_f_8hpp_a8995a1df0a2d35dc2afad4824c3833c4}{print\+SRFCalculation}} (int union\+Card, int set1\+\_\+set2\+Card, int set2\+\_\+set1\+Card, int bipartitions\+Occurence\+Sum, int null\+Result\+Card, double SRFresult)
+\begin{DoxyCompactList}\small\item\em prints in terminal details about SRF calculation \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_s_r_f_8hpp_a3450db0483a4da010f796ee9f88427e7}{are\+Lists\+Equal}} (list$<$ string $>$ list1, list$<$ string $>$ list2)
-\item 
+\begin{DoxyCompactList}\small\item\em compares two lists of strings \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_s_r_f_8hpp_a389c1d7ca036961849f82175a6707da2}{is\+String\+In\+Vector}} (string s, vector$<$ string $>$ v)
-\item 
+\begin{DoxyCompactList}\small\item\em checks if a string is present in a vector$<$string$>$ \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_s_r_f_8hpp_a9e80c0364ad8f480dcfb460a51a6c58f}{is\+Pair\+In\+Vector}} (pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ input\+Pair, vector$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ $>$ input\+Vector)
-\item 
-void \mbox{\hyperlink{_s_r_f_8hpp_a2b3010d74e56be71942cfd3c4aba0e72}{print\+Bipartition\+Occurences}} (const vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$ \&data)
-\item 
+\begin{DoxyCompactList}\small\item\em checks if a given pair\texorpdfstring{$<$}{<}list$<$sting$>$, list$<$string$>$\texorpdfstring{$>$}{>} exists in a vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_r_f_8hpp_a9eb433d07666355011589cb922a8d38d}{print\+Bipartition\+Occurences}} (vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$ input\+Vector)
+\begin{DoxyCompactList}\small\item\em prints in terminal a vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}, int\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_s_r_f_8hpp_a217ec4ac8d1dc41fa6835524c145d89f}{are\+Bipartitions\+Equal}} (pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ bip1, pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ bip2)
-\item 
-void \mbox{\hyperlink{_s_r_f_8hpp_a740009ab7b92a6b5fa84d312f2c22ab2}{print\+SRFCalculation}} (int union\+Card, int set1\+\_\+set2\+Card, int set2\+\_\+set1\+Card, int bipartitions\+Occurence\+Sum, int null\+Result\+Card)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em checks if two bipartitions represented as pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>} are equal \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -55,13 +55,43 @@ void \mbox{\hyperlink{_s_r_f_8hpp_a740009ab7b92a6b5fa84d312f2c22ab2}{print\+SRFC
 \doxysubsubsection{\texorpdfstring{areBipartitionsEqual()}{areBipartitionsEqual()}}
 {\footnotesize\ttfamily bool are\+Bipartitions\+Equal (\begin{DoxyParamCaption}\item[{pair$<$ list$<$ string $>$, list$<$ string $>$ $>$}]{bip1,  }\item[{pair$<$ list$<$ string $>$, list$<$ string $>$ $>$}]{bip2 }\end{DoxyParamCaption})}
 
+
+
+checks if two bipartitions represented as pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>} are equal 
+
+It checks if the two list$<$string$>$ of each pair are equal, no matter the order
+
+
+\begin{DoxyParams}{Parameters}
+{\em bip1} & pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>} \\
+\hline
+{\em bip2} & pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true(1) if bip1 == bip2 
+\end{DoxyReturn}
 \Hypertarget{_s_r_f_8hpp_a3450db0483a4da010f796ee9f88427e7}\label{_s_r_f_8hpp_a3450db0483a4da010f796ee9f88427e7} 
 \index{SRF.hpp@{SRF.hpp}!areListsEqual@{areListsEqual}}
 \index{areListsEqual@{areListsEqual}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{areListsEqual()}{areListsEqual()}}
 {\footnotesize\ttfamily bool are\+Lists\+Equal (\begin{DoxyParamCaption}\item[{list$<$ string $>$}]{list1,  }\item[{list$<$ string $>$}]{list2 }\end{DoxyParamCaption})}
 
-util functions \Hypertarget{_s_r_f_8hpp_ad7985b5bcdfa354260c94c720746108b}\label{_s_r_f_8hpp_ad7985b5bcdfa354260c94c720746108b} 
+
+
+compares two lists of strings 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list1} & \+: list$<$string$>$ \\
+\hline
+{\em list2} & \+: list$<$string$>$\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true(1) if lists are equal 
+\end{DoxyReturn}
+\Hypertarget{_s_r_f_8hpp_ad7985b5bcdfa354260c94c720746108b}\label{_s_r_f_8hpp_ad7985b5bcdfa354260c94c720746108b} 
 \index{SRF.hpp@{SRF.hpp}!bipartitionOccurencesDifference@{bipartitionOccurencesDifference}}
 \index{bipartitionOccurencesDifference@{bipartitionOccurencesDifference}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{bipartitionOccurencesDifference()}{bipartitionOccurencesDifference()}}
@@ -141,24 +171,82 @@ vector$<$string$>$, each string being a tree leaf
 \doxysubsubsection{\texorpdfstring{isPairInVector()}{isPairInVector()}}
 {\footnotesize\ttfamily bool is\+Pair\+In\+Vector (\begin{DoxyParamCaption}\item[{pair$<$ list$<$ string $>$, list$<$ string $>$ $>$}]{input\+Pair,  }\item[{vector$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$ $>$}]{input\+Vector }\end{DoxyParamCaption})}
 
+
+
+checks if a given pair\texorpdfstring{$<$}{<}list$<$sting$>$, list$<$string$>$\texorpdfstring{$>$}{>} exists in a vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Pair} & \+: pair\texorpdfstring{$<$}{<}list$<$sting$>$, list$<$string$>$\texorpdfstring{$>$}{>} \\
+\hline
+{\em input\+Vector} & \+: vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true(1) if input\+Pair exists in input\+Vector 
+\end{DoxyReturn}
 \Hypertarget{_s_r_f_8hpp_a389c1d7ca036961849f82175a6707da2}\label{_s_r_f_8hpp_a389c1d7ca036961849f82175a6707da2} 
 \index{SRF.hpp@{SRF.hpp}!isStringInVector@{isStringInVector}}
 \index{isStringInVector@{isStringInVector}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{isStringInVector()}{isStringInVector()}}
 {\footnotesize\ttfamily bool is\+String\+In\+Vector (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{vector$<$ string $>$}]{v }\end{DoxyParamCaption})}
 
-\Hypertarget{_s_r_f_8hpp_a2b3010d74e56be71942cfd3c4aba0e72}\label{_s_r_f_8hpp_a2b3010d74e56be71942cfd3c4aba0e72} 
+
+
+checks if a string is present in a vector$<$string$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \+: string \\
+\hline
+{\em v} & \+: vector$<$string$>$\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true(1) if s exists in v 
+\end{DoxyReturn}
+\Hypertarget{_s_r_f_8hpp_a9eb433d07666355011589cb922a8d38d}\label{_s_r_f_8hpp_a9eb433d07666355011589cb922a8d38d} 
 \index{SRF.hpp@{SRF.hpp}!printBipartitionOccurences@{printBipartitionOccurences}}
 \index{printBipartitionOccurences@{printBipartitionOccurences}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{printBipartitionOccurences()}{printBipartitionOccurences()}}
-{\footnotesize\ttfamily void print\+Bipartition\+Occurences (\begin{DoxyParamCaption}\item[{const vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$ \&}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+Bipartition\+Occurences (\begin{DoxyParamCaption}\item[{vector$<$ pair$<$ pair$<$ list$<$ string $>$, list$<$ string $>$ $>$, int $>$ $>$}]{input\+Vector }\end{DoxyParamCaption})}
 
-\Hypertarget{_s_r_f_8hpp_a740009ab7b92a6b5fa84d312f2c22ab2}\label{_s_r_f_8hpp_a740009ab7b92a6b5fa84d312f2c22ab2} 
+
+
+prints in terminal a vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}, int\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Vector} & \+: vector\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}pair\texorpdfstring{$<$}{<}list$<$string$>$, list$<$string$>$\texorpdfstring{$>$}{>}, int\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_s_r_f_8hpp_a8995a1df0a2d35dc2afad4824c3833c4}\label{_s_r_f_8hpp_a8995a1df0a2d35dc2afad4824c3833c4} 
 \index{SRF.hpp@{SRF.hpp}!printSRFCalculation@{printSRFCalculation}}
 \index{printSRFCalculation@{printSRFCalculation}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{printSRFCalculation()}{printSRFCalculation()}}
-{\footnotesize\ttfamily void print\+SRFCalculation (\begin{DoxyParamCaption}\item[{int}]{union\+Card,  }\item[{int}]{set1\+\_\+set2\+Card,  }\item[{int}]{set2\+\_\+set1\+Card,  }\item[{int}]{bipartitions\+Occurence\+Sum,  }\item[{int}]{null\+Result\+Card }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+SRFCalculation (\begin{DoxyParamCaption}\item[{int}]{union\+Card,  }\item[{int}]{set1\+\_\+set2\+Card,  }\item[{int}]{set2\+\_\+set1\+Card,  }\item[{int}]{bipartitions\+Occurence\+Sum,  }\item[{int}]{null\+Result\+Card,  }\item[{double}]{SRFresult }\end{DoxyParamCaption})}
 
+
+
+prints in terminal details about SRF calculation 
+
+util functions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em union\+Card} & cardinal of E1 U E2 \\
+\hline
+{\em bipartitions\+Occurence\+Sum} & the number of bipartitions of E1 (respectively E2) in T1 (respectively T2), that induce the bipartition P of E1 ∩\+E2. Here, we denote by BP (E1 ∩ E2) the set of all bipartitions of E1 ∩ E2. \\
+\hline
+{\em null\+Result\+Card} & number of bipartitions that create empty set in E1 ∩ E2 \\
+\hline
+{\em set1\+\_\+set2\+Card} & card(E1 \textbackslash{} E2) \\
+\hline
+{\em set2\+\_\+set1\+Card} & card(E2 \textbackslash{} E1) \\
+\hline
+{\em SRFresult} & double \+: numeric result of SRF \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_s_r_f_8hpp_ad3643f546e86cd011ee86677d2cb13ef}\label{_s_r_f_8hpp_ad3643f546e86cd011ee86677d2cb13ef} 
 \index{SRF.hpp@{SRF.hpp}!reduceBipartitionsToIntersection@{reduceBipartitionsToIntersection}}
 \index{reduceBipartitionsToIntersection@{reduceBipartitionsToIntersection}!SRF.hpp@{SRF.hpp}}
@@ -277,11 +365,11 @@ returns the union of two sets
 \begin{DoxyReturn}{Returns}
 vector$<$string$>$ the union of the given sets 
 \end{DoxyReturn}
-\Hypertarget{_s_r_f_8hpp_a3cbca3f50e0c9ea15d74897c506a52a3}\label{_s_r_f_8hpp_a3cbca3f50e0c9ea15d74897c506a52a3} 
+\Hypertarget{_s_r_f_8hpp_aa057c3a185f8f1efcdcc925fe3881473}\label{_s_r_f_8hpp_aa057c3a185f8f1efcdcc925fe3881473} 
 \index{SRF.hpp@{SRF.hpp}!SRF@{SRF}}
 \index{SRF@{SRF}!SRF.hpp@{SRF.hpp}}
 \doxysubsubsection{\texorpdfstring{SRF()}{SRF()}}
-{\footnotesize\ttfamily double SRF (\begin{DoxyParamCaption}\item[{string}]{newick1,  }\item[{string}]{newick2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double SRF (\begin{DoxyParamCaption}\item[{string}]{newick1,  }\item[{string}]{newick2,  }\item[{bool}]{print\+Details }\end{DoxyParamCaption})}
 
 
 
@@ -291,7 +379,9 @@ calculates SRF distance for two phylogenetical trees
 \begin{DoxyParams}{Parameters}
 {\em newick1} & Newick representation of T1 \\
 \hline
-{\em newick2} & Newick representation of T2\\
+{\em newick2} & Newick representation of T2 \\
+\hline
+{\em print\+Details} & 1(true) to print calculation details values in terminal\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

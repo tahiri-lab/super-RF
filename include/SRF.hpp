@@ -22,6 +22,17 @@
 using namespace std;
 
 /**
+ * @brief calculates SRF distance for two phylogenetical trees
+ *
+ * @param newick1 Newick representation of T1
+ * @param newick2 Newick representation of T2
+ * @param printDetails 1(true) to print calculation details values in terminal
+ *
+ * @return double : SRF value
+ * */
+double SRF(string newick1, string newick2, bool printDetails);
+
+/**
  * @brief get biparition size
  *
  * @param inputBipartition a pair<list<string>, list<string>> representing a bipartition
@@ -120,31 +131,75 @@ vector<pair<pair<list<string>, list<string>>, int>> getBipartitionOccurences(vec
 pair<int, int> bipartitionOccurencesDifference(vector<pair<pair<list<string>, list<string>>, int>> bipartitions1,
                                                vector<pair<pair<list<string>, list<string>>, int>> bipartitions2);
 
-/**
- * @brief calculates SRF distance for two phylogenetical trees
- *
- * @param newick1 Newick representation of T1
- * @param newick2 Newick representation of T2
- *
- * @return double : SRF value
- * */
-double SRF(string newick1, string newick2);
 
 /**
  * util functions
  * */
 
+/**
+ * @brief prints in terminal details about SRF calculation
+ *
+ * @param unionCard cardinal of E1 U E2
+ * @param bipartitionsOccurenceSum the number of bipartitions of E1 (respectively E2) in T1 (respectively T2),
+ *        that induce the bipartition P of E1 ∩E2. Here, we denote by BP (E1 ∩ E2) the set of all bipartitions
+ *        of E1 ∩ E2.
+ * @param nullResultCard number of bipartitions that create empty set in E1 ∩ E2
+ * @param set1_set2Card card(E1 \ E2)
+ * @param set2_set1Card card(E2 \ E1)
+ * @param SRFresult double : numeric result of SRF
+ * */
+void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum,
+                         int nullResultCard, double SRFresult);
+
+/**
+ * @brief compares two lists of strings
+ *
+ * @param list1 : list<string>
+ * @param list2 : list<string>
+ *
+ * @return true(1) if lists are equal
+ * */
 bool areListsEqual(list<string> list1, list<string> list2);
 
+/**
+ * @brief checks if a string is present in a vector<string>
+ *
+ * @param s : string
+ * @param v : vector<string>
+ *
+ * @return true(1) if s exists in v
+ * */
 bool isStringInVector(string s, vector<string> v);
 
+/**
+ * @brief checks if a given pair<list<sting>, list<string>> exists in a vector<pair<list<string>, list<string>>>
+ *
+ * @param inputPair : pair<list<sting>, list<string>>
+ * @param inputVector : vector<pair<list<string>, list<string>>>
+ *
+ * @return true(1) if inputPair exists in inputVector
+ * */
 bool isPairInVector(pair<list<string>, list<string>> inputPair, vector<pair<list<string>, list<string>>> inputVector);
 
-void printBipartitionOccurences(const vector<pair<pair<list<string>, list<string>>, int>>& data);
+/**
+ * @brief prints in terminal a vector<pair<pair<list<string>, list<string>>, int>>
+ *
+ * @param inputVector : vector<pair<pair<list<string>, list<string>>, int>>
+ * */
+void printBipartitionOccurences(vector<pair<pair<list<string>, list<string>>, int>> inputVector);
 
+/**
+ * @brief checks if two bipartitions represented as pair<list<string>, list<string>> are equal
+ *
+ * It checks if the two list<string> of each pair are equal, no matter the order
+ *
+ * @param bip1 pair<list<string>, list<string>>
+ * @param bip2 pair<list<string>, list<string>>
+ *
+ * @return true(1) if bip1 == bip2
+ * */
 bool areBipartitionsEqual(pair<list<string>, list<string>> bip1, pair<list<string>, list<string>> bip2);
 
-void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum,
-                         int nullResultCard);
+
 
 #endif //NEWICKBIPARTITIONPARSER__SRF_HPP

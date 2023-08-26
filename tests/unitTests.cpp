@@ -185,5 +185,5 @@ void testBipartitionOccurenceDifference() {
 }
 
 void testSRF() {
-    int SRFvalue = SRF(T1, T2);
+    int SRFvalue = SRF(T1, T2, true);
 }

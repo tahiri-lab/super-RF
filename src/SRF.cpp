@@ -4,7 +4,7 @@
 
 #include "../include/SRF.hpp"
 
-double SRF(string newick1, string newick2) {
+double SRF(string newick1, string newick2, bool printDetails) {
     double result = 0;
 
     //initializing all needed variables
@@ -65,7 +65,7 @@ double SRF(string newick1, string newick2) {
     bipartitionsOccurenceSum = bipartitionOccurenceDifference.first;
     nullResultCard = bipartitionOccurenceDifference.second;
 
-    //printSRFCalculation(unionCard, set1_set2Card, set2_set1Card, bipartitionsOccurenceSum, nullResultCard);
+
 
     result = (bipartitionsOccurenceSum + nullResultCard + set1_set2Card + set2_set1Card) / ((2 * unionCard) -6);
     double numerator = bipartitionsOccurenceSum + nullResultCard + set1_set2Card + set2_set1Card;
@@ -74,7 +74,11 @@ double SRF(string newick1, string newick2) {
 
     result = numerator / denominator;
 
-    //cout << "EQUALS " << fixed << setprecision(2) << result << endl;
+    //prints values used in terminal
+    if (printDetails) {
+        printSRFCalculation(unionCard, set1_set2Card, set2_set1Card, bipartitionsOccurenceSum, nullResultCard, result);
+    }
+
     return result;
 }
 
@@ -279,8 +283,8 @@ bool isPairInVector(pair<list<string>, list<string>> inputPair, vector<pair<list
     return result;
 }
 
-void printBipartitionOccurences(const vector<pair<pair<list<string>, list<string>>, int>>& data) {
-    for (const auto& entry : data) {
+void printBipartitionOccurences(vector<pair<pair<list<string>, list<string>>, int>> inputVector) {
+    for (const auto& entry : inputVector) {
         const auto& bipartitionPair = entry.first;
         const auto& firstList = bipartitionPair.first;
         const auto& secondList = bipartitionPair.second;
@@ -315,10 +319,14 @@ bool areBipartitionsEqual(pair<list<string>, list<string>> bip1, pair<list<strin
     return result;
 }
 
-void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard) {
-    cout << "CALCULATING SRF :" << endl;
-    cout << bipartitionsOccurenceSum << " + " << nullResultCard << " + " << set1_set2Card << " + " << set2_set1Card << endl;
-    cout << "--------------------" << endl;
-    cout << "2 x " << unionCard << " - 6" << endl;
+void printSRFCalculation(int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard, double SRFresult) {
+    cout << "CALCULATING SRF WITH VALUES :" << endl;
+    cout << "card(E1/E2) = " << set1_set2Card << endl;
+    cout << "card(E2/E1) = " << set2_set1Card << endl;
+    cout << "sum|B1(P) - B2(P)| = " << bipartitionsOccurenceSum << endl;
+    cout << "card(0) = " << nullResultCard << endl;
+
+    cout << "\ncard(E1 U E2) = " << unionCard << endl;
+    cout << "=====> SRF = " << SRFresult << endl;
 }
 

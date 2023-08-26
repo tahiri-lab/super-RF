@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
             cout << "---------------------------------------------------------------------------------------" << endl;
             cout << Tree2 << endl;
             cout << "---------------------------------------------------------------------------------------" << endl;
-            SRF(Tree1, Tree2);
+            SRF(Tree1, Tree2, true);
         }
 
     }
@@ -86,7 +86,7 @@ void testTriangleInequality() {
     cout << "Calculating SRF and checking triangle inequality :" << endl;
     for (int i = 0; i < numStrings; ++i) {
         for (int j = i + 1; j < numStrings; ++j) {
-            std::cout << i << " and " << j << " = " << SRF(trees[i], trees[j]) << std::endl;
+            std::cout << i << " and " << j << " = " << SRF(trees[i], trees[j], false) << std::endl;
         }
     }
 
@@ -104,9 +104,9 @@ bool checkTriangleInequality(vector<string> inputTrees) {
         for (int j = 0; j < numStrings; ++j) {
             for (int k = 0; k < numStrings; ++k) {
                 if (i != j && j != k && i != k) {
-                    double inequalityResult = SRF(inputTrees[i], inputTrees[k]) +
-                            SRF(inputTrees[k], inputTrees[j]) -
-                            SRF(inputTrees[i], inputTrees[j]);
+                    double inequalityResult = SRF(inputTrees[i], inputTrees[k], false) +
+                            SRF(inputTrees[k], inputTrees[j], false) -
+                            SRF(inputTrees[i], inputTrees[j], false);
                     cout << "SRF(" << i << "," << k << ") + " <<
                          "SRF(" << k << "," << j << ") - " <<
                          "SRF(" << i << "," << j << ")" <<

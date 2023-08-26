@@ -88,6 +88,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa057c3a185f8f1efcdcc925fe3881473"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#aa057c3a185f8f1efcdcc925fe3881473">SRF</a> (string newick1, string newick2, bool printDetails)</td></tr>
+<tr class="memdesc:aa057c3a185f8f1efcdcc925fe3881473"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates SRF distance for two phylogenetical trees  <br /></td></tr>
+<tr class="separator:aa057c3a185f8f1efcdcc925fe3881473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad1fd3e3e707d95fab5b877f9723c9c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#aad1fd3e3e707d95fab5b877f9723c9c3">getBipartitionSize</a> (pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt; inputBipartition)</td></tr>
 <tr class="memdesc:aad1fd3e3e707d95fab5b877f9723c9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get biparition size  <br /></td></tr>
 <tr class="separator:aad1fd3e3e707d95fab5b877f9723c9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,21 +121,24 @@ Functions</h2></td></tr>
 <tr class="memitem:ad7985b5bcdfa354260c94c720746108b"><td class="memItemLeft" align="right" valign="top">pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#ad7985b5bcdfa354260c94c720746108b">bipartitionOccurencesDifference</a> (vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt; bipartitions1, vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt; bipartitions2)</td></tr>
 <tr class="memdesc:ad7985b5bcdfa354260c94c720746108b"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the sum of absolute differences of similar bipartitions occurences and the cardinal of null results  <br /></td></tr>
 <tr class="separator:ad7985b5bcdfa354260c94c720746108b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cbca3f50e0c9ea15d74897c506a52a3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a3cbca3f50e0c9ea15d74897c506a52a3">SRF</a> (string newick1, string newick2)</td></tr>
-<tr class="memdesc:a3cbca3f50e0c9ea15d74897c506a52a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates SRF distance for two phylogenetical trees  <br /></td></tr>
-<tr class="separator:a3cbca3f50e0c9ea15d74897c506a52a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8995a1df0a2d35dc2afad4824c3833c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a8995a1df0a2d35dc2afad4824c3833c4">printSRFCalculation</a> (int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard, double SRFresult)</td></tr>
+<tr class="memdesc:a8995a1df0a2d35dc2afad4824c3833c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints in terminal details about SRF calculation  <br /></td></tr>
+<tr class="separator:a8995a1df0a2d35dc2afad4824c3833c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3450db0483a4da010f796ee9f88427e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a3450db0483a4da010f796ee9f88427e7">areListsEqual</a> (list&lt; string &gt; list1, list&lt; string &gt; list2)</td></tr>
+<tr class="memdesc:a3450db0483a4da010f796ee9f88427e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">compares two lists of strings  <br /></td></tr>
 <tr class="separator:a3450db0483a4da010f796ee9f88427e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a389c1d7ca036961849f82175a6707da2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a389c1d7ca036961849f82175a6707da2">isStringInVector</a> (string s, vector&lt; string &gt; v)</td></tr>
+<tr class="memdesc:a389c1d7ca036961849f82175a6707da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a string is present in a vector&lt;string&gt;  <br /></td></tr>
 <tr class="separator:a389c1d7ca036961849f82175a6707da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e80c0364ad8f480dcfb460a51a6c58f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a9e80c0364ad8f480dcfb460a51a6c58f">isPairInVector</a> (pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt; inputPair, vector&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt; &gt; inputVector)</td></tr>
+<tr class="memdesc:a9e80c0364ad8f480dcfb460a51a6c58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a given pair&lt;list&lt;sting&gt;, list&lt;string&gt;&gt; exists in a vector&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;&gt;  <br /></td></tr>
 <tr class="separator:a9e80c0364ad8f480dcfb460a51a6c58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b3010d74e56be71942cfd3c4aba0e72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a2b3010d74e56be71942cfd3c4aba0e72">printBipartitionOccurences</a> (const vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt; &amp;data)</td></tr>
-<tr class="separator:a2b3010d74e56be71942cfd3c4aba0e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eb433d07666355011589cb922a8d38d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a9eb433d07666355011589cb922a8d38d">printBipartitionOccurences</a> (vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt; inputVector)</td></tr>
+<tr class="memdesc:a9eb433d07666355011589cb922a8d38d"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints in terminal a vector&lt;pair&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;, int&gt;&gt;  <br /></td></tr>
+<tr class="separator:a9eb433d07666355011589cb922a8d38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a217ec4ac8d1dc41fa6835524c145d89f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a217ec4ac8d1dc41fa6835524c145d89f">areBipartitionsEqual</a> (pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt; bip1, pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt; bip2)</td></tr>
+<tr class="memdesc:a217ec4ac8d1dc41fa6835524c145d89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two bipartitions represented as pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt; are equal  <br /></td></tr>
 <tr class="separator:a217ec4ac8d1dc41fa6835524c145d89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a740009ab7b92a6b5fa84d312f2c22ab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_r_f_8hpp.html#a740009ab7b92a6b5fa84d312f2c22ab2">printSRFCalculation</a> (int unionCard, int set1_set2Card, int set2_set1Card, int bipartitionsOccurenceSum, int nullResultCard)</td></tr>
-<tr class="separator:a740009ab7b92a6b5fa84d312f2c22ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a217ec4ac8d1dc41fa6835524c145d89f" name="a217ec4ac8d1dc41fa6835524c145d89f"></a>
@@ -161,6 +167,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>checks if two bipartitions represented as pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt; are equal </p>
+<p>It checks if the two list&lt;string&gt; of each pair are equal, no matter the order</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bip1</td><td>pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt; </td></tr>
+    <tr><td class="paramname">bip2</td><td>pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true(1) if bip1 == bip2 </dd></dl>
+
 </div>
 </div>
 <a id="a3450db0483a4da010f796ee9f88427e7" name="a3450db0483a4da010f796ee9f88427e7"></a>
@@ -188,7 +205,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>util functions </p>
+
+<p>compares two lists of strings </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list1</td><td>: list&lt;string&gt; </td></tr>
+    <tr><td class="paramname">list2</td><td>: list&lt;string&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true(1) if lists are equal </dd></dl>
 
 </div>
 </div>
@@ -337,6 +363,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>checks if a given pair&lt;list&lt;sting&gt;, list&lt;string&gt;&gt; exists in a vector&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;&gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputPair</td><td>: pair&lt;list&lt;sting&gt;, list&lt;string&gt;&gt; </td></tr>
+    <tr><td class="paramname">inputVector</td><td>: vector&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true(1) if inputPair exists in inputVector </dd></dl>
+
 </div>
 </div>
 <a id="a389c1d7ca036961849f82175a6707da2" name="a389c1d7ca036961849f82175a6707da2"></a>
@@ -365,10 +401,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>checks if a string is present in a vector&lt;string&gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>: string </td></tr>
+    <tr><td class="paramname">v</td><td>: vector&lt;string&gt;</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true(1) if s exists in v </dd></dl>
+
 </div>
 </div>
-<a id="a2b3010d74e56be71942cfd3c4aba0e72" name="a2b3010d74e56be71942cfd3c4aba0e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b3010d74e56be71942cfd3c4aba0e72">&#9670;&#160;</a></span>printBipartitionOccurences()</h2>
+<a id="a9eb433d07666355011589cb922a8d38d" name="a9eb433d07666355011589cb922a8d38d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb433d07666355011589cb922a8d38d">&#9670;&#160;</a></span>printBipartitionOccurences()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -376,17 +422,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void printBipartitionOccurences </td>
           <td>(</td>
-          <td class="paramtype">const vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramtype">vector&lt; pair&lt; pair&lt; list&lt; string &gt;, list&lt; string &gt; &gt;, int &gt; &gt;&#160;</td>
+          <td class="paramname"><em>inputVector</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>prints in terminal a vector&lt;pair&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;, int&gt;&gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputVector</td><td>: vector&lt;pair&lt;pair&lt;list&lt;string&gt;, list&lt;string&gt;&gt;, int&gt;&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a740009ab7b92a6b5fa84d312f2c22ab2" name="a740009ab7b92a6b5fa84d312f2c22ab2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a740009ab7b92a6b5fa84d312f2c22ab2">&#9670;&#160;</a></span>printSRFCalculation()</h2>
+<a id="a8995a1df0a2d35dc2afad4824c3833c4" name="a8995a1df0a2d35dc2afad4824c3833c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8995a1df0a2d35dc2afad4824c3833c4">&#9670;&#160;</a></span>printSRFCalculation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +473,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nullResultCard</em>&#160;</td>
+          <td class="paramname"><em>nullResultCard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>SRFresult</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -428,6 +488,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>prints in terminal details about SRF calculation </p>
+<p>util functions </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unionCard</td><td>cardinal of E1 U E2 </td></tr>
+    <tr><td class="paramname">bipartitionsOccurenceSum</td><td>the number of bipartitions of E1 (respectively E2) in T1 (respectively T2), that induce the bipartition P of E1 ∩E2. Here, we denote by BP (E1 ∩ E2) the set of all bipartitions of E1 ∩ E2. </td></tr>
+    <tr><td class="paramname">nullResultCard</td><td>number of bipartitions that create empty set in E1 ∩ E2 </td></tr>
+    <tr><td class="paramname">set1_set2Card</td><td>card(E1 \ E2) </td></tr>
+    <tr><td class="paramname">set2_set1Card</td><td>card(E2 \ E1) </td></tr>
+    <tr><td class="paramname">SRFresult</td><td>double : numeric result of SRF </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -648,8 +722,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3cbca3f50e0c9ea15d74897c506a52a3" name="a3cbca3f50e0c9ea15d74897c506a52a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cbca3f50e0c9ea15d74897c506a52a3">&#9670;&#160;</a></span>SRF()</h2>
+<a id="aa057c3a185f8f1efcdcc925fe3881473" name="aa057c3a185f8f1efcdcc925fe3881473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa057c3a185f8f1efcdcc925fe3881473">&#9670;&#160;</a></span>SRF()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -664,7 +738,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>newick2</em>&#160;</td>
+          <td class="paramname"><em>newick2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>printDetails</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -678,7 +758,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newick1</td><td>Newick representation of T1 </td></tr>
-    <tr><td class="paramname">newick2</td><td>Newick representation of T2</td></tr>
+    <tr><td class="paramname">newick2</td><td>Newick representation of T2 </td></tr>
+    <tr><td class="paramname">printDetails</td><td>1(true) to print calculation details values in terminal</td></tr>
   </table>
   </dd>
 </dl>
