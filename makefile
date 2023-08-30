@@ -1,16 +1,16 @@
 all : make
 
-make : main.cpp
-	g++ -std=c++17 main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
+make : src/main.cpp
+	g++ -std=c++17 src/main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
 
-test : main.cpp
-	g++ -std=c++17 main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
+test : src/main.cpp
+	g++ -std=c++17 src/main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
 	./SRF test
 
-triangle : main.cpp
-	g++ -std=c++17 main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
+triangle : src/main.cpp
+	g++ -std=c++17 src/main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
 	./SRF triangle
 
-user : main.cpp
-	g++ -std=c++17 main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
+user : src/main.cpp
+	g++ -std=c++17 src/main.cpp src/parser.cpp src/SRF.cpp tests/unitTests.cpp -o SRF
 	./SRF user
