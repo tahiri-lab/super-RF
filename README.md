@@ -112,6 +112,5 @@ The ```SRF()``` function can utilize any functions present in the ```SRF.cpp``` 
 
 ## Contact
 If you have any question or feedback, do not hesitate to reach us at :
-- Nadia Tahiri : nadia.tahiri@usherbrooke.ca
-- Matthieur Willems : matthieu.willems@claurendeau.qc.ca
+- Nadia Tahiri : Nadia.Tahiri@USherbrooke.ca
 - Arthur Debeaupte : debeaupte.arthur@gmail.com
